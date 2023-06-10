@@ -15,6 +15,12 @@ class HallsRepositoryImpl implements HallsRepository {
     final hallsModels = await _hallsService.getAllHalls();
     return hallsModels.map((hallModel) => hallModel.toEntity).toList();
   }
+
+  @override
+  Future<List<Hall>> getOffersHalls() async {
+    final hallsModels = await _hallsService.getOffersHalls();
+    return hallsModels.map((hallModel) => hallModel.toEntity).toList();
+  }
 }
 
 extension HallMapper on HallModel {

@@ -6,7 +6,7 @@ class HostConstants {
   static const String getAllHallsEndpoint = 'halls.php';
   static const String getPhotographersEndpoint = 'photographers.php';
   static const String getHairdressersEndpoint = 'hairdressers.php';
-  static const String offersEndpoint = 'offers.php';
+  static const String getOffersHallsEndpoint = 'offers.php';
   static const String getAllCarsEndpoint = 'cars.php';
 }
 

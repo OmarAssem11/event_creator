@@ -17,3 +17,9 @@ class GetAllHallsSuccess extends HallsState {
 
   GetAllHallsSuccess(this.halls);
 }
+
+class GetOffersHallsSuccess extends HallsState {
+  final List<Hall> halls;
+
+  GetOffersHallsSuccess(this.halls);
+}

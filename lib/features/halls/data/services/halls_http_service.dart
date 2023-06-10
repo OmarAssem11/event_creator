@@ -24,4 +24,18 @@ class HallsHTTPService implements HallsService {
       throw createRemoteException(exception);
     }
   }
+
+  @override
+  Future<List<HallModel>> getOffersHalls() async {
+    try {
+      final response = await _dio.get(HostConstants.getOffersHallsEndpoint);
+      final responseBody = response.data as List;
+      final hallsModels = responseBody
+          .map((json) => HallModel.fromJson(json as Map<String, dynamic>))
+          .toList();
+      return hallsModels;
+    } catch (exception) {
+      throw createRemoteException(exception);
+    }
+  }
 }
