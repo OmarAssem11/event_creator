@@ -32,5 +32,7 @@
     "youHaveLoggedOut": "You have logged out",
     "capacity": "Capacity",
     "peoples": "peoples",
-    "model": "Model"
+    "model": "Model",
+    "contactUs": "Contact us",
+    "aboutUs": "About us"
 }

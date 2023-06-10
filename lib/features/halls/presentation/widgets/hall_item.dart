@@ -35,7 +35,8 @@ class HallItem extends StatelessWidget {
           Row(
             children: [
               Text(
-                  '${S.current.capacity}: ${hall.numOfPeople} ${S.current.peoples}'),
+                '${S.current.capacity}: ${hall.numOfPeople} ${S.current.peoples}',
+              ),
               const Spacer(),
               Text('${hall.rating}'),
               const Icon(

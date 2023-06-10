@@ -389,6 +389,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Contact us`
+  String get contactUs {
+    return Intl.message(
+      'Contact us',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About us`
+  String get aboutUs {
+    return Intl.message(
+      'About us',
+      name: 'aboutUs',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
