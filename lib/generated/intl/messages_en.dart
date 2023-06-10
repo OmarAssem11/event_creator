@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
+        "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),
         "cars": MessageLookupByLibrary.simpleMessage("Cars"),
         "createAccount":
             MessageLookupByLibrary.simpleMessage("Create an account"),
@@ -49,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("Login to your account"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "model": MessageLookupByLibrary.simpleMessage("Model"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noInternetConnection":
@@ -59,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password can\'t be empty"),
         "passwordMustBeAtLeast8Chars": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 8 characters"),
+        "peoples": MessageLookupByLibrary.simpleMessage("peoples"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "somethingWentWrong":

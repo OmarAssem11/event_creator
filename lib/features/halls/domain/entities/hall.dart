@@ -4,6 +4,7 @@ class Hall extends Equatable {
   final String id;
   final String description;
   final String imageUrl;
+  final double rating;
   final int numOfPeople;
   final double price;
 
@@ -11,6 +12,7 @@ class Hall extends Equatable {
     required this.id,
     required this.description,
     required this.imageUrl,
+    required this.rating,
     required this.numOfPeople,
     required this.price,
   });

@@ -29,5 +29,8 @@
     "emailCanNotBeEmpty": "Email address can't be empty",
     "passwordCanNotBeEmpty": "Password can't be empty",
     "incorrectEmailAddress": "Incorrect email address",
-    "youHaveLoggedOut": "You have logged out"
+    "youHaveLoggedOut": "You have logged out",
+    "capacity": "Capacity",
+    "peoples": "peoples",
+    "model": "Model"
 }

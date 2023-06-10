@@ -359,6 +359,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Capacity`
+  String get capacity {
+    return Intl.message(
+      'Capacity',
+      name: 'capacity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `peoples`
+  String get peoples {
+    return Intl.message(
+      'peoples',
+      name: 'peoples',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Model`
+  String get model {
+    return Intl.message(
+      'Model',
+      name: 'model',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

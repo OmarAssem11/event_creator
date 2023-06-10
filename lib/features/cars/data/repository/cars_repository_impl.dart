@@ -22,6 +22,7 @@ extension CarMapper on CarModel {
         id: id,
         description: description,
         imageUrl: imageUrl,
+        rating: rating,
         brand: brand,
         model: model,
         price: price,

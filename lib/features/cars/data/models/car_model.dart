@@ -2,6 +2,7 @@ class CarModel {
   final String id;
   final String description;
   final String imageUrl;
+  final double rating;
   final String brand;
   final String model;
   final double price;
@@ -10,6 +11,7 @@ class CarModel {
     required this.id,
     required this.description,
     required this.imageUrl,
+    required this.rating,
     required this.brand,
     required this.model,
     required this.price,
@@ -20,6 +22,7 @@ class CarModel {
           id: json['id'] as String,
           description: json['des'] as String,
           imageUrl: json['paths'] as String,
+          rating: double.parse(json['num_rate'] as String),
           brand: json['brand'] as String,
           model: json['model'] as String,
           price: double.parse(json['price'] as String),

@@ -28,6 +28,7 @@ extension HallMapper on HallModel {
         id: id,
         description: description,
         imageUrl: imageUrl,
+        rating: rating,
         numOfPeople: numOfPeople,
         price: price,
       );
