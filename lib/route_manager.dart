@@ -1,7 +1,7 @@
-import 'package:event_creator/about_us_screen.dart';
-import 'package:event_creator/contact_us_screen.dart';
 import 'package:event_creator/features/auth/presentation/screens/email_password_login_screen.dart';
 import 'package:event_creator/features/auth/presentation/screens/register_screen.dart';
+import 'package:event_creator/features/more/presentation/screens/about_us_screen.dart';
+import 'package:event_creator/features/more/presentation/screens/contact_us_screen.dart';
 import 'package:event_creator/ui/layout/home_layout.dart';
 import 'package:go_router/go_router.dart';
 

@@ -320,6 +320,16 @@ class S {
     );
   }
 
+  /// `can't be empty`
+  String get canNotBeEmpty {
+    return Intl.message(
+      'can\'t be empty',
+      name: 'canNotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email address can't be empty`
   String get emailCanNotBeEmpty {
     return Intl.message(
@@ -405,6 +415,56 @@ class S {
     return Intl.message(
       'About us',
       name: 'aboutUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subject`
+  String get subject {
+    return Intl.message(
+      'Subject',
+      name: 'subject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent`
+  String get sent {
+    return Intl.message(
+      'Sent',
+      name: 'sent',
       desc: '',
       args: [],
     );

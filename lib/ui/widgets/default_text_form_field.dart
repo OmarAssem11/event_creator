@@ -7,6 +7,7 @@ class DefaultTextFormField extends StatelessWidget {
     this.prefixIconData,
     this.keyboardType,
     this.validator,
+    this.maxLines,
   });
 
   final TextEditingController controller;
@@ -14,6 +15,7 @@ class DefaultTextFormField extends StatelessWidget {
   final IconData? prefixIconData;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class DefaultTextFormField extends StatelessWidget {
       ),
       keyboardType: keyboardType,
       validator: validator,
+      maxLines: maxLines,
       autocorrect: false,
     );
   }

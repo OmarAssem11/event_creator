@@ -26,6 +26,7 @@
     "incorrectPassword": "Incorrect password",
     "emailAlreadyInUse": "The email address is already in use by another account",
     "resetPassword": "Reset Password",
+    "canNotBeEmpty": "can't be empty",
     "emailCanNotBeEmpty": "Email address can't be empty",
     "passwordCanNotBeEmpty": "Password can't be empty",
     "incorrectEmailAddress": "Incorrect email address",
@@ -34,5 +35,10 @@
     "peoples": "peoples",
     "model": "Model",
     "contactUs": "Contact us",
-    "aboutUs": "About us"
+    "aboutUs": "About us",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit",
+    "sent": "Sent"
 }

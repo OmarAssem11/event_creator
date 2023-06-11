@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
+        "canNotBeEmpty":
+            MessageLookupByLibrary.simpleMessage("can\'t be empty"),
         "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),
         "cars": MessageLookupByLibrary.simpleMessage("Cars"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
@@ -52,8 +54,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("Login to your account"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "message": MessageLookupByLibrary.simpleMessage("Message"),
         "model": MessageLookupByLibrary.simpleMessage("Model"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
@@ -66,8 +70,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "peoples": MessageLookupByLibrary.simpleMessage("peoples"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "subject": MessageLookupByLibrary.simpleMessage("Subject"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome,"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back,"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),

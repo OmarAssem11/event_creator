@@ -23,6 +23,7 @@ ThemeData getTheme() => ThemeData(
         color: ColorPalette.white,
         foregroundColor: ColorPalette.secondary,
         elevation: Sizes.s4,
+        centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(Sizes.s16),
@@ -33,7 +34,7 @@ ThemeData getTheme() => ThemeData(
           fontSize: FontSize.s20,
         ),
         actionsIconTheme: const IconThemeData(
-          color: ColorPalette.white,
+          color: ColorPalette.secondary,
           size: Sizes.s28,
         ),
       ),

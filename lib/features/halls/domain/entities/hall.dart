@@ -4,17 +4,17 @@ class Hall extends Equatable {
   final String id;
   final String description;
   final String imageUrl;
-  final double rating;
   final int numOfPeople;
   final double price;
+  final double? rating;
 
   const Hall({
     required this.id,
     required this.description,
     required this.imageUrl,
-    required this.rating,
     required this.numOfPeople,
     required this.price,
+    this.rating,
   });
 
   @override
