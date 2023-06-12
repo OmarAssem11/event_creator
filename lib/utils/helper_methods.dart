@@ -1,5 +1,6 @@
 import 'package:event_creator/features/auth/domain/entities/email_address.dart';
 import 'package:event_creator/features/auth/domain/entities/password.dart';
+import 'package:event_creator/features/auth/domain/entities/phone_number.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/utils/exception/app_exception.dart';
 
@@ -29,6 +30,18 @@ String? validatePassword(String? value) {
     }
     Password(value);
   } on InvalidPasswordException catch (exception) {
+    return exception.message;
+  }
+  return null;
+}
+
+String? validatePhoneNumber(String? value) {
+  try {
+    if (value == null || value.isEmpty) {
+      return S.current.phoneNumberCanNotBeEmpty;
+    }
+    PhoneNumber(countryCode: '+20', number: value);
+  } on InvalidPhoneNumberException catch (exception) {
     return exception.message;
   }
   return null;

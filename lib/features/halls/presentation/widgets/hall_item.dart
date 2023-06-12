@@ -3,7 +3,6 @@ import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
-import 'package:event_creator/ui/widgets/error_indicator.dart';
 import 'package:flutter/material.dart';
 
 class HallItem extends StatelessWidget {

@@ -28,8 +28,8 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailAddressController = TextEditingController();
   final _passwordController = TextEditingController();
-  late TextTheme _textTheme;
   bool _isLoading = false;
+  late TextTheme _textTheme;
 
   @override
   void didChangeDependencies() {
@@ -40,20 +40,15 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(Insets.xl),
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Spacer(flex: 6),
               Text(
                 S.current.welcomeBack,
                 style: _textTheme.displaySmall
@@ -67,7 +62,7 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
                   fontWeight: FontWeightManager.regular,
                 ),
               ),
-              const Spacer(flex: 2),
+              const SizedBox(height: Sizes.s32),
               DefaultTextFormField(
                 controller: _emailAddressController,
                 hintText: S.current.emailAddress,
@@ -77,7 +72,7 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
               ),
               const SizedBox(height: Sizes.s12),
               PasswordTextFormField(controller: _passwordController),
-              const Spacer(),
+              const SizedBox(height: Sizes.s24),
               Center(
                 child: BlocConsumer<AuthCubit, AuthState>(
                   listener: (_, state) {
@@ -121,7 +116,6 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
                   ),
                 ],
               ),
-              const Spacer(flex: 2),
             ],
           ),
         ),

@@ -1,8 +1,11 @@
 import 'package:event_creator/features/auth/domain/entities/email_address.dart';
+import 'package:event_creator/features/auth/domain/entities/gender.dart';
 import 'package:event_creator/features/auth/domain/entities/password.dart';
+import 'package:event_creator/features/auth/domain/entities/phone_number.dart';
 import 'package:event_creator/features/auth/domain/entities/register_data.dart';
 import 'package:event_creator/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:event_creator/features/auth/presentation/cubit/auth_state.dart';
+import 'package:event_creator/features/auth/presentation/widgets/gender_radio_button_group.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/text_styles_manager.dart';
@@ -25,10 +28,14 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
   final _emailAddressController = TextEditingController();
   final _passwordController = TextEditingController();
-  late TextTheme _textTheme;
+  final _phoneNumberController = TextEditingController();
+  final _countryCode = '+20';
+  Gender _selectedGender = Gender.male;
   bool _isLoading = false;
+  late TextTheme _textTheme;
 
   @override
   void didChangeDependencies() {
@@ -39,20 +46,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(Insets.xl),
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Spacer(flex: 6),
               Text(
                 S.current.welcome,
                 style: _textTheme.displaySmall
@@ -66,7 +68,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontWeight: FontWeightManager.regular,
                 ),
               ),
-              const Spacer(flex: 2),
+              const SizedBox(height: Sizes.s32),
+              DefaultTextFormField(
+                controller: _nameController,
+                hintText: S.current.name,
+                keyboardType: TextInputType.name,
+                prefixIconData: Icons.person_outline_rounded,
+                validator: (name) => validateRegularText(name, S.current.name),
+              ),
+              const SizedBox(height: Sizes.s12),
               DefaultTextFormField(
                 controller: _emailAddressController,
                 hintText: S.current.emailAddress,
@@ -76,7 +86,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: Sizes.s12),
               PasswordTextFormField(controller: _passwordController),
-              const Spacer(),
+              const SizedBox(height: Sizes.s12),
+              DefaultTextFormField(
+                controller: _phoneNumberController,
+                hintText: S.current.phoneNumber,
+                keyboardType: TextInputType.phone,
+                prefixIconData: Icons.phone_android_rounded,
+                validator: validatePhoneNumber,
+              ),
+              const SizedBox(height: Sizes.s12),
+              GenderRadioButtonGroup(
+                onChanged: (newValue) => _selectedGender = newValue,
+              ),
+              const SizedBox(height: Sizes.s24),
               Center(
                 child: BlocConsumer<AuthCubit, AuthState>(
                   listener: (_, state) {
@@ -95,10 +117,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           BlocProvider.of<AuthCubit>(context)
                               .registerWithEmailAndPassword(
                             RegisterData(
-                              emailAddress: EmailAddress(
-                                _emailAddressController.text,
-                              ),
+                              name: _nameController.text,
+                              emailAddress:
+                                  EmailAddress(_emailAddressController.text),
                               password: Password(_passwordController.text),
+                              phoneNumber: PhoneNumber(
+                                countryCode: _countryCode,
+                                number: _phoneNumberController.text,
+                              ),
+                              gender: _selectedGender,
                             ),
                           );
                         }
@@ -120,7 +147,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ],
               ),
-              const Spacer(flex: 2),
             ],
           ),
         ),

@@ -360,6 +360,36 @@ class S {
     );
   }
 
+  /// `Phone number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number can't be empty`
+  String get phoneNumberCanNotBeEmpty {
+    return Intl.message(
+      'Phone number can\'t be empty',
+      name: 'phoneNumberCanNotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid phone number`
+  String get invalidPhoneNumber {
+    return Intl.message(
+      'Invalid phone number',
+      name: 'invalidPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You have logged out`
   String get youHaveLoggedOut {
     return Intl.message(

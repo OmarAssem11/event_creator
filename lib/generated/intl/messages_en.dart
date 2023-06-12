@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Incorrect password"),
         "invalidEmailAddress":
             MessageLookupByLibrary.simpleMessage("Invalid email address"),
+        "invalidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Invalid phone number"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginOrRegister":
             MessageLookupByLibrary.simpleMessage("Login or Register"),
@@ -68,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBeAtLeast8Chars": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 8 characters"),
         "peoples": MessageLookupByLibrary.simpleMessage("peoples"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
+        "phoneNumberCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "Phone number can\'t be empty"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),

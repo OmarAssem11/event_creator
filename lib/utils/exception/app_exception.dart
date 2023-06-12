@@ -63,3 +63,7 @@ class InvalidEmailAddressException extends ValidationException {
 class InvalidPasswordException extends ValidationException {
   InvalidPasswordException() : super(S.current.passwordMustBeAtLeast8Chars);
 }
+
+class InvalidPhoneNumberException extends ValidationException {
+  InvalidPhoneNumberException() : super(S.current.invalidPhoneNumber);
+}

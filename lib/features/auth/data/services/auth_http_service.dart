@@ -18,8 +18,11 @@ class AuthHTTPService implements AuthService {
       final response = await _dio.post(
         HostConstants.registerEndpoint,
         data: {
-          'email': registerData.emailAddress,
-          'password': registerData.password,
+          'name': registerData.name,
+          'email': registerData.emailAddress.value,
+          'password': registerData.password.value,
+          'phone': registerData.phoneNumber.value,
+          'gender': registerData.gender.text,
         },
       );
       return const Token('token');
