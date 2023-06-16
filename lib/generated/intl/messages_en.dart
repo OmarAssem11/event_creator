@@ -56,13 +56,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("Login to your account"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "maxPrice": MessageLookupByLibrary.simpleMessage("Max Price"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
+        "minPrice": MessageLookupByLibrary.simpleMessage("Min Price"),
         "model": MessageLookupByLibrary.simpleMessage("Model"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "numberOfPeoples":
+            MessageLookupByLibrary.simpleMessage("Number of Peoples"),
         "offers": MessageLookupByLibrary.simpleMessage("Offers"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordCanNotBeEmpty":
@@ -73,8 +77,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
         "phoneNumberCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Phone number can\'t be empty"),
+        "rateThisCar": MessageLookupByLibrary.simpleMessage("Rate this car"),
+        "rateThisHall": MessageLookupByLibrary.simpleMessage("Rate this hall"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),

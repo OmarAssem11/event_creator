@@ -17,3 +17,5 @@ class GetAllCarsSuccess extends CarsState {
 
   GetAllCarsSuccess(this.cars);
 }
+
+class RateCarSuccess extends CarsState {}

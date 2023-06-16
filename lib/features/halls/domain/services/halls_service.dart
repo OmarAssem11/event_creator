@@ -4,4 +4,6 @@ abstract class HallsService {
   Future<List<HallModel>> getAllHalls();
 
   Future<List<HallModel>> getOffersHalls();
+
+  Future<void> rateHall(double rating);
 }

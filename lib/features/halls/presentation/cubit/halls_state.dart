@@ -23,3 +23,5 @@ class GetOffersHallsSuccess extends HallsState {
 
   GetOffersHallsSuccess(this.halls);
 }
+
+class RateHallSuccess extends HallsState {}

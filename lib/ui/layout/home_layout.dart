@@ -1,6 +1,8 @@
 import 'package:event_creator/features/cars/presentation/screens/cars_screen.dart';
+import 'package:event_creator/features/cars/presentation/widgets/car_search.dart';
 import 'package:event_creator/features/halls/presentation/screens/halls_screen.dart';
 import 'package:event_creator/features/halls/presentation/screens/offers_screen.dart';
+import 'package:event_creator/features/halls/presentation/widgets/halls_search.dart';
 import 'package:event_creator/features/more/presentation/screens/more_screen.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/ui/layout/bottom_nav_bar.dart';
@@ -34,10 +36,15 @@ class _HomeLayoutState extends State<HomeLayout> {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
         actions: [
-          if (_currentIndex == 0)
+          if (_currentIndex == 0 || _currentIndex == 1)
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.filter_alt),
+              onPressed: () => showDialog(
+                context: context,
+                builder: (_) => _currentIndex == 0
+                    ? const HallsSearch()
+                    : const CarsSearch(),
+              ),
+              icon: const Icon(Icons.search_rounded),
             ),
         ],
       ),

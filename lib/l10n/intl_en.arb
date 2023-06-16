@@ -43,5 +43,11 @@
     "subject": "Subject",
     "message": "Message",
     "submit": "Submit",
-    "sent": "Sent"
+    "sent": "Sent",
+    "numberOfPeoples": "Number of Peoples",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "search": "Search",
+    "rateThisHall": "Rate this hall",
+    "rateThisCar": "Rate this car"
 }

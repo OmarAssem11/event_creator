@@ -38,4 +38,13 @@ class HallsHTTPService implements HallsService {
       throw createRemoteException(exception);
     }
   }
+
+  @override
+  Future<void> rateHall(double rating) async {
+    try {
+      return await Future.delayed(const Duration(milliseconds: 500));
+    } catch (exception) {
+      throw createRemoteException(exception);
+    }
+  }
 }

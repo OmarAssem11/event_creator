@@ -24,4 +24,13 @@ class CarsHTTPService implements CarsService {
       throw createRemoteException(exception);
     }
   }
+
+  @override
+  Future<void> rateCar(double rating) async {
+    try {
+      return await Future.delayed(const Duration(milliseconds: 500));
+    } catch (exception) {
+      throw createRemoteException(exception);
+    }
+  }
 }

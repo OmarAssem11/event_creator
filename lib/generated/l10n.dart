@@ -499,6 +499,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Number of Peoples`
+  String get numberOfPeoples {
+    return Intl.message(
+      'Number of Peoples',
+      name: 'numberOfPeoples',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min Price`
+  String get minPrice {
+    return Intl.message(
+      'Min Price',
+      name: 'minPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Price`
+  String get maxPrice {
+    return Intl.message(
+      'Max Price',
+      name: 'maxPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate this hall`
+  String get rateThisHall {
+    return Intl.message(
+      'Rate this hall',
+      name: 'rateThisHall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate this car`
+  String get rateThisCar {
+    return Intl.message(
+      'Rate this car',
+      name: 'rateThisCar',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
