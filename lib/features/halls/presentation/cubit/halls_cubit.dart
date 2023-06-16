@@ -1,7 +1,9 @@
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/usecases/book_hall.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_all_halls.dart';
+import 'package:event_creator/features/halls/domain/usecases/get_hairdresser.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_offers_halls.dart';
+import 'package:event_creator/features/halls/domain/usecases/get_photographers.dart';
 import 'package:event_creator/features/halls/domain/usecases/rate_hall.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/utils/exception/app_exception.dart';
@@ -12,11 +14,16 @@ import 'package:injectable/injectable.dart';
 class HallsCubit extends Cubit<HallsState> {
   final GetAllHalls _getAllHalls;
   final GetOffersHalls _getOffersHalls;
+  final GetHairdressers _getHairdressers;
+  final GetPhotographers _getPhotographers;
   final RateHall _rateHall;
   final BookHall _bookHall;
+
   HallsCubit(
     this._getAllHalls,
     this._getOffersHalls,
+    this._getHairdressers,
+    this._getPhotographers,
     this._rateHall,
     this._bookHall,
   ) : super(HallsInitial());
@@ -36,6 +43,26 @@ class HallsCubit extends Cubit<HallsState> {
     try {
       final halls = await _getOffersHalls();
       emit(GetOffersHallsSuccess(halls));
+    } on RemoteException catch (exception) {
+      emit(HallsError(exception.message));
+    }
+  }
+
+  Future<void> getHairdressers() async {
+    emit(HallsLoading());
+    try {
+      final hairdressers = await _getHairdressers();
+      emit(GetHairdressersSuccess(hairdressers));
+    } on RemoteException catch (exception) {
+      emit(HallsError(exception.message));
+    }
+  }
+
+  Future<void> getPhotographers() async {
+    emit(HallsLoading());
+    try {
+      final photographers = await _getPhotographers();
+      emit(GetPhotographersSuccess(photographers));
     } on RemoteException catch (exception) {
       emit(HallsError(exception.message));
     }

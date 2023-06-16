@@ -4,14 +4,14 @@ class HallBookingData {
   final String hallId;
   final DateTime date;
   final EventType eventType;
-  final String photographerId;
   final String hairdresserId;
+  final String photographerId;
 
   const HallBookingData({
     required this.hallId,
     required this.date,
     required this.eventType,
-    required this.photographerId,
     required this.hairdresserId,
+    required this.photographerId,
   });
 }

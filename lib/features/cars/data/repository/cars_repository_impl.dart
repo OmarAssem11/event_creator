@@ -22,9 +22,9 @@ extension CarMapper on CarModel {
         id: id,
         description: description,
         imageUrl: imageUrl,
+        price: price,
         rating: rating,
         brand: brand,
         model: model,
-        price: price,
       );
 }

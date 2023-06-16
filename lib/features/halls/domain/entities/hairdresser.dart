@@ -1,20 +1,19 @@
 import 'package:equatable/equatable.dart';
+import 'package:event_creator/features/auth/domain/entities/phone_number.dart';
 
-class Hall extends Equatable {
+class Hairdresser extends Equatable {
   final String id;
   final String description;
   final String imageUrl;
   final double price;
-  final int numOfPeople;
-  final double? rating;
+  final PhoneNumber phoneNumber;
 
-  const Hall({
+  const Hairdresser({
     required this.id,
     required this.description,
     required this.imageUrl,
     required this.price,
-    required this.numOfPeople,
-    this.rating,
+    required this.phoneNumber,
   });
 
   @override
