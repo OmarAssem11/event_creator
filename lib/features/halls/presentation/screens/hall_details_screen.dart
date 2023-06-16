@@ -1,23 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
+import 'package:event_creator/features/halls/presentation/widgets/hall_rating_bar.dart';
 import 'package:event_creator/generated/l10n.dart';
-import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
+import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class HallItem extends StatelessWidget {
-  const HallItem(this.hall);
+class HallDetailsScreen extends StatelessWidget {
+  const HallDetailsScreen(this.hall);
 
   final Hall hall;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(Insets.l),
-      child: InkWell(
-        onTap: () => context.pushNamed(Routes.hallDetails, extra: hall),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(S.current.hallDetails),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(Insets.l),
         child: Column(
           children: [
             ClipRRect(
@@ -37,8 +39,6 @@ class HallItem extends StatelessWidget {
             const SizedBox(height: Sizes.s12),
             Text(
               hall.description,
-              maxLines: 4,
-              overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: Sizes.s12),
             Row(
@@ -54,6 +54,41 @@ class HallItem extends StatelessWidget {
                     color: ColorPalette.gold,
                   ),
                 ]
+              ],
+            ),
+            const SizedBox(height: Sizes.s12),
+            Row(
+              children: [
+                Expanded(
+                  child: DefaultElevatedButton(
+                    label: S.current.book,
+                    onPressed: () {},
+                  ),
+                ),
+                const SizedBox(width: Sizes.s8),
+                ElevatedButton(
+                  onPressed: () => showDialog(
+                    context: context,
+                    builder: (_) => HallRatingBar(hallId: hall.id),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: Size(
+                      double.infinity,
+                      MediaQuery.of(context).size.height * 0.06,
+                    ),
+                    backgroundColor: ColorPalette.grey,
+                  ),
+                  child: Row(
+                    children: [
+                      Text(S.current.rate),
+                      const SizedBox(width: Sizes.s4),
+                      const Icon(
+                        Icons.rate_review_outlined,
+                        size: Sizes.s20,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],

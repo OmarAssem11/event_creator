@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:event_creator/features/cars/data/models/car_model.dart';
+import 'package:event_creator/features/cars/domain/entities/car_booking_data.dart';
 import 'package:event_creator/features/cars/domain/services/cars_service.dart';
 import 'package:event_creator/utils/constants.dart';
 import 'package:event_creator/utils/exception/create_remote_exception.dart';
@@ -26,9 +27,21 @@ class CarsHTTPService implements CarsService {
   }
 
   @override
-  Future<void> rateCar(double rating) async {
+  Future<void> rateCar({
+    required String carId,
+    required double rating,
+  }) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 500));
+      return await Future.delayed(const Duration(milliseconds: 700));
+    } catch (exception) {
+      throw createRemoteException(exception);
+    }
+  }
+
+  @override
+  Future<void> bookCar(CarBookingData bookingData) async {
+    try {
+      return await Future.delayed(const Duration(milliseconds: 700));
     } catch (exception) {
       throw createRemoteException(exception);
     }

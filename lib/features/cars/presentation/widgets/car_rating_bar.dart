@@ -7,15 +7,12 @@ import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:go_router/go_router.dart';
 
 class CarRatingBar extends StatefulWidget {
-  const CarRatingBar({
-    required this.orderId,
-    required this.productId,
-  });
+  const CarRatingBar({required this.carId});
 
-  final String orderId;
-  final String productId;
+  final String carId;
 
   @override
   State<CarRatingBar> createState() => _CarRatingBarState();
@@ -57,12 +54,15 @@ class _CarRatingBarState extends State<CarRatingBar> {
             ),
             const SizedBox(height: Sizes.s24),
             BlocConsumer<CarsCubit, CarsState>(
-              listener: (_, state) => _isLoading = state is CarsLoading,
+              listener: (_, state) {
+                _isLoading = state is CarsLoading;
+                if (state is RateCarSuccess) context.pop();
+              },
               builder: (context, state) {
                 return DefaultElevatedButton(
                   label: S.current.submit,
-                  onPressed: () =>
-                      BlocProvider.of<CarsCubit>(context).rateCar(_rating),
+                  onPressed: () => BlocProvider.of<CarsCubit>(context)
+                      .rateCar(carId: widget.carId, rating: _rating),
                   isLoading: _isLoading,
                 );
               },

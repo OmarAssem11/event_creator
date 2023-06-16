@@ -25,3 +25,5 @@ class GetOffersHallsSuccess extends HallsState {
 }
 
 class RateHallSuccess extends HallsState {}
+
+class BookHallSuccess extends HallsState {}

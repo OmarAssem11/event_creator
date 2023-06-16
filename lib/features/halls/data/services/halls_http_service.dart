@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:event_creator/features/halls/data/models/hall_model.dart';
+import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/services/halls_service.dart';
 import 'package:event_creator/utils/constants.dart';
 import 'package:event_creator/utils/exception/create_remote_exception.dart';
@@ -40,9 +41,21 @@ class HallsHTTPService implements HallsService {
   }
 
   @override
-  Future<void> rateHall(double rating) async {
+  Future<void> rateHall({
+    required String hallId,
+    required double rating,
+  }) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 500));
+      return await Future.delayed(const Duration(milliseconds: 700));
+    } catch (exception) {
+      throw createRemoteException(exception);
+    }
+  }
+
+  @override
+  Future<void> bookHall(HallBookingData bookingData) async {
+    try {
+      return await Future.delayed(const Duration(milliseconds: 700));
     } catch (exception) {
       throw createRemoteException(exception);
     }

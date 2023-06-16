@@ -48,6 +48,10 @@
     "minPrice": "Min Price",
     "maxPrice": "Max Price",
     "search": "Search",
+    "hallDetails": "Hall Details",
+    "carDetails": "Car Details",
+    "book": "Book",
+    "rate": "Rate",
     "rateThisHall": "Rate this hall",
     "rateThisCar": "Rate this car"
 }

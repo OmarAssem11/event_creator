@@ -27,9 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
+        "book": MessageLookupByLibrary.simpleMessage("Book"),
         "canNotBeEmpty":
             MessageLookupByLibrary.simpleMessage("can\'t be empty"),
         "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),
+        "carDetails": MessageLookupByLibrary.simpleMessage("Car Details"),
         "cars": MessageLookupByLibrary.simpleMessage("Cars"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
         "createAccount":
@@ -41,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The email address is already in use by another account"),
         "emailCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Email address can\'t be empty"),
+        "hallDetails": MessageLookupByLibrary.simpleMessage("Hall Details"),
         "halls": MessageLookupByLibrary.simpleMessage("Halls"),
         "incorrectEmailAddress":
             MessageLookupByLibrary.simpleMessage("Incorrect email address"),
@@ -77,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
         "phoneNumberCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Phone number can\'t be empty"),
+        "rate": MessageLookupByLibrary.simpleMessage("Rate"),
         "rateThisCar": MessageLookupByLibrary.simpleMessage("Rate this car"),
         "rateThisHall": MessageLookupByLibrary.simpleMessage("Rate this hall"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),

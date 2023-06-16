@@ -19,3 +19,5 @@ class GetAllCarsSuccess extends CarsState {
 }
 
 class RateCarSuccess extends CarsState {}
+
+class BookCarSuccess extends CarsState {}

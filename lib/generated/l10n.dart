@@ -540,6 +540,46 @@ class S {
     );
   }
 
+  /// `Hall Details`
+  String get hallDetails {
+    return Intl.message(
+      'Hall Details',
+      name: 'hallDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car Details`
+  String get carDetails {
+    return Intl.message(
+      'Car Details',
+      name: 'carDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book`
+  String get book {
+    return Intl.message(
+      'Book',
+      name: 'book',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate`
+  String get rate {
+    return Intl.message(
+      'Rate',
+      name: 'rate',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Rate this hall`
   String get rateThisHall {
     return Intl.message(

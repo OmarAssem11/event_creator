@@ -7,15 +7,12 @@ import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:go_router/go_router.dart';
 
 class HallRatingBar extends StatefulWidget {
-  const HallRatingBar({
-    required this.orderId,
-    required this.productId,
-  });
+  const HallRatingBar({required this.hallId});
 
-  final String orderId;
-  final String productId;
+  final String hallId;
 
   @override
   State<HallRatingBar> createState() => _HallRatingBarState();
@@ -49,7 +46,7 @@ class _HallRatingBarState extends State<HallRatingBar> {
               allowHalfRating: true,
               itemBuilder: (context, _) => const Icon(
                 Icons.star,
-                color: Colors.amber,
+                color: ColorPalette.gold,
               ),
               onRatingUpdate: (updatedRating) {
                 _rating = updatedRating;
@@ -57,12 +54,15 @@ class _HallRatingBarState extends State<HallRatingBar> {
             ),
             const SizedBox(height: Sizes.s24),
             BlocConsumer<HallsCubit, HallsState>(
-              listener: (_, state) => _isLoading = state is HallsLoading,
+              listener: (_, state) {
+                _isLoading = state is HallsLoading;
+                if (state is RateHallSuccess) context.pop();
+              },
               builder: (context, state) {
                 return DefaultElevatedButton(
                   label: S.current.submit,
-                  onPressed: () =>
-                      BlocProvider.of<HallsCubit>(context).rateHall(_rating),
+                  onPressed: () => BlocProvider.of<HallsCubit>(context)
+                      .rateHall(hallId: widget.hallId, rating: _rating),
                   isLoading: _isLoading,
                 );
               },
