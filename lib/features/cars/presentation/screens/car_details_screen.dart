@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:event_creator/features/cars/domain/entities/car.dart';
 import 'package:event_creator/features/cars/presentation/widgets/car_rating_bar.dart';
 import 'package:event_creator/generated/l10n.dart';
+import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CarDetailsScreen extends StatelessWidget {
   const CarDetailsScreen(this.car);
@@ -55,7 +57,7 @@ class CarDetailsScreen extends StatelessWidget {
                 Expanded(
                   child: DefaultElevatedButton(
                     label: S.current.book,
-                    onPressed: () {},
+                    onPressed: () => context.pushNamed(Routes.carBooking),
                   ),
                 ),
                 const SizedBox(width: Sizes.s8),

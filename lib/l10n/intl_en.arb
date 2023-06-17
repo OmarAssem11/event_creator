@@ -53,5 +53,8 @@
     "book": "Book",
     "rate": "Rate",
     "rateThisHall": "Rate this hall",
-    "rateThisCar": "Rate this car"
+    "rateThisCar": "Rate this car",
+    "thankYouForYourRating": "Thank you for your rating", 
+    "hallBooking": "Hall Booking",
+    "carBooking": "Car Booking"
 }

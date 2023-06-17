@@ -1,8 +1,10 @@
+import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
+import 'package:event_creator/ui/toast.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,13 +58,18 @@ class _HallRatingBarState extends State<HallRatingBar> {
             BlocConsumer<HallsCubit, HallsState>(
               listener: (_, state) {
                 _isLoading = state is HallsLoading;
-                if (state is RateHallSuccess) context.pop();
+                if (state is RateHallSuccess) {
+                  showToast(S.current.thankYouForYourRating);
+                  context.pop();
+                }
               },
               builder: (context, state) {
                 return DefaultElevatedButton(
                   label: S.current.submit,
-                  onPressed: () => BlocProvider.of<HallsCubit>(context)
-                      .rateHall(hallId: widget.hallId, rating: _rating),
+                  onPressed: () =>
+                      BlocProvider.of<HallsCubit>(context).rateHall(
+                    HallRatingData(hallId: widget.hallId, rating: _rating),
+                  ),
                   isLoading: _isLoading,
                 );
               },

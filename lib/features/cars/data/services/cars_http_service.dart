@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:event_creator/features/cars/data/models/car_booking_data_model.dart';
 import 'package:event_creator/features/cars/data/models/car_model.dart';
-import 'package:event_creator/features/cars/domain/entities/car_booking_data.dart';
+import 'package:event_creator/features/cars/data/models/car_rating_data_model.dart';
 import 'package:event_creator/features/cars/domain/services/cars_service.dart';
 import 'package:event_creator/utils/constants.dart';
 import 'package:event_creator/utils/exception/create_remote_exception.dart';
@@ -13,7 +14,7 @@ class CarsHTTPService implements CarsService {
   const CarsHTTPService(this._dio);
 
   @override
-  Future<List<CarModel>> getAllHalls() async {
+  Future<List<CarModel>> getAllCars() async {
     try {
       final response = await _dio.get(HostConstants.getAllCarsEndpoint);
       final responseBody = response.data as List;
@@ -27,10 +28,7 @@ class CarsHTTPService implements CarsService {
   }
 
   @override
-  Future<void> rateCar({
-    required String carId,
-    required double rating,
-  }) async {
+  Future<void> rateCar(CarRatingDataModel carRatingDataModel) async {
     try {
       return await Future.delayed(const Duration(milliseconds: 700));
     } catch (exception) {
@@ -39,7 +37,7 @@ class CarsHTTPService implements CarsService {
   }
 
   @override
-  Future<void> bookCar(CarBookingData bookingData) async {
+  Future<void> bookCar(CarBookingDataModel carBookingDataModel) async {
     try {
       return await Future.delayed(const Duration(milliseconds: 700));
     } catch (exception) {

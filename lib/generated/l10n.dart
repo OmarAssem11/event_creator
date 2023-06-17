@@ -599,6 +599,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Thank you for your rating`
+  String get thankYouForYourRating {
+    return Intl.message(
+      'Thank you for your rating',
+      name: 'thankYouForYourRating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hall Booking`
+  String get hallBooking {
+    return Intl.message(
+      'Hall Booking',
+      name: 'hallBooking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car Booking`
+  String get carBooking {
+    return Intl.message(
+      'Car Booking',
+      name: 'carBooking',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

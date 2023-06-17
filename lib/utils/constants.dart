@@ -8,6 +8,11 @@ class HostConstants {
   static const String getHairdressersEndpoint = 'hairdressers.php';
   static const String getOffersHallsEndpoint = 'offers.php';
   static const String getAllCarsEndpoint = 'cars.php';
+  static const String hallsCheckNowEndpoint = '';
+  static const String carsCheckNowEndpoint = '';
+  static const String hallBookingEndpoint = '';
+  static const String carBookingEndpoint = '';
+  static const String contactUsEndpoint = '';
 }
 
 class CacheConstants {

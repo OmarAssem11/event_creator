@@ -14,6 +14,8 @@ class CarsScreen extends StatefulWidget {
 }
 
 class _CarsScreenState extends State<CarsScreen> {
+  bool _carsLoaded = false;
+
   @override
   void initState() {
     super.initState();
@@ -23,12 +25,14 @@ class _CarsScreenState extends State<CarsScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CarsCubit, CarsState>(
+      buildWhen: (_, __) => !_carsLoaded,
       builder: (context, state) {
         if (state is CarsLoading) {
           return const LoadingIndicator();
         } else if (state is CarsError) {
           return const ErrorIndicator();
         } else if (state is GetAllCarsSuccess) {
+          _carsLoaded = true;
           return ListView.builder(
             itemBuilder: (_, index) => CarItem(state.cars[index]),
             itemCount: state.cars.length,

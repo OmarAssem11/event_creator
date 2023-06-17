@@ -1,4 +1,5 @@
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
+import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
 import 'package:event_creator/features/halls/domain/usecases/book_hall.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_all_halls.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_hairdresser.dart';
@@ -68,23 +69,20 @@ class HallsCubit extends Cubit<HallsState> {
     }
   }
 
-  Future<void> rateHall({
-    required String hallId,
-    required double rating,
-  }) async {
+  Future<void> rateHall(HallRatingData hallRatingData) async {
     emit(HallsLoading());
     try {
-      await _rateHall(hallId: hallId, rating: rating);
+      await _rateHall(hallRatingData);
       emit(RateHallSuccess());
     } on RemoteException catch (exception) {
       emit(HallsError(exception.message));
     }
   }
 
-  Future<void> bookHall(HallBookingData bookingData) async {
+  Future<void> bookHall(HallBookingData hallBookingData) async {
     emit(HallsLoading());
     try {
-      await _bookHall(bookingData);
+      await _bookHall(hallBookingData);
       emit(BookHallSuccess());
     } on RemoteException catch (exception) {
       emit(HallsError(exception.message));

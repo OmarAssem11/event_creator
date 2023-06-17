@@ -1,12 +1,17 @@
+import 'package:event_creator/di/injection_container.dart';
 import 'package:event_creator/features/auth/presentation/screens/email_password_login_screen.dart';
 import 'package:event_creator/features/auth/presentation/screens/register_screen.dart';
 import 'package:event_creator/features/cars/domain/entities/car.dart';
+import 'package:event_creator/features/cars/presentation/screens/car_booking_screen.dart';
 import 'package:event_creator/features/cars/presentation/screens/car_details_screen.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
+import 'package:event_creator/features/halls/presentation/screens/hall_booking_screen.dart';
 import 'package:event_creator/features/halls/presentation/screens/hall_details_screen.dart';
+import 'package:event_creator/features/more/presentation/cubit/more_cubit.dart';
 import 'package:event_creator/features/more/presentation/screens/about_us_screen.dart';
 import 'package:event_creator/features/more/presentation/screens/contact_us_screen.dart';
 import 'package:event_creator/ui/layout/home_layout.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
@@ -17,6 +22,8 @@ class Routes {
   static const String aboutUs = 'aboutUs';
   static const String hallDetails = 'hall-details';
   static const String carDetails = 'car-details';
+  static const String hallBooking = 'hall-booking';
+  static const String carBooking = 'car-booking';
 }
 
 GoRouter router = GoRouter(
@@ -29,8 +36,12 @@ GoRouter router = GoRouter(
         GoRoute(
           name: Routes.contactUs,
           path: Routes.contactUs,
-          pageBuilder: (_, __) =>
-              const NoTransitionPage(child: ContactUsScreen()),
+          pageBuilder: (_, __) => NoTransitionPage(
+            child: BlocProvider(
+              create: (_) => getIt<MoreCubit>(),
+              child: const ContactUsScreen(),
+            ),
+          ),
         ),
         GoRoute(
           name: Routes.aboutUs,
@@ -53,6 +64,18 @@ GoRouter router = GoRouter(
             final car = state.extra! as Car;
             return NoTransitionPage(child: CarDetailsScreen(car));
           },
+        ),
+        GoRoute(
+          name: Routes.hallBooking,
+          path: Routes.hallBooking,
+          pageBuilder: (_, __) =>
+              const NoTransitionPage(child: HallBookingScreen()),
+        ),
+        GoRoute(
+          name: Routes.carBooking,
+          path: Routes.carBooking,
+          pageBuilder: (_, __) =>
+              const NoTransitionPage(child: CarBookingScreen()),
         ),
       ],
     ),

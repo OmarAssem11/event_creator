@@ -1,9 +1,13 @@
 import 'package:event_creator/features/auth/domain/entities/phone_number.dart';
 import 'package:event_creator/features/halls/data/models/hairdresser_model.dart';
+import 'package:event_creator/features/halls/data/models/hall_booking_data_model.dart';
 import 'package:event_creator/features/halls/data/models/hall_model.dart';
+import 'package:event_creator/features/halls/data/models/hall_rating_data_model.dart';
 import 'package:event_creator/features/halls/data/models/photographer_model.dart';
 import 'package:event_creator/features/halls/domain/entities/hairdresser.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
+import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
+import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
 import 'package:event_creator/features/halls/domain/entities/photographer.dart';
 import 'package:event_creator/features/halls/domain/repository/halls_repository.dart';
 import 'package:event_creator/features/halls/domain/services/halls_service.dart';
@@ -42,6 +46,14 @@ class HallsRepositoryImpl implements HallsRepository {
         .map((photographerModel) => photographerModel.toEntity)
         .toList();
   }
+
+  @override
+  Future<void> rateHall(HallRatingData hallRatingData) async =>
+      _hallsService.rateHall(hallRatingData.fromEntity);
+
+  @override
+  Future<void> bookHall(HallBookingData hallBookingData) async =>
+      _hallsService.bookHall(hallBookingData.fromEntity);
 }
 
 extension HallMapper on HallModel {
@@ -72,5 +84,22 @@ extension PhotographerMapper on PhotographerModel {
         imageUrl: imageUrl,
         price: price,
         phoneNumber: PhoneNumber(countryCode: '+20', number: phoneNumber),
+      );
+}
+
+extension HallRatingDataModelMapper on HallRatingData {
+  HallRatingDataModel get fromEntity => HallRatingDataModel(
+        hallId: hallId,
+        rating: rating,
+      );
+}
+
+extension HallBookingDataModelMapper on HallBookingData {
+  HallBookingDataModel get fromEntity => HallBookingDataModel(
+        hallId: hallId,
+        date: date.toIso8601String(),
+        eventType: eventType.text,
+        hairdresserId: hairdresserId,
+        photographerId: photographerId,
       );
 }

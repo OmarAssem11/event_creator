@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "canNotBeEmpty":
             MessageLookupByLibrary.simpleMessage("can\'t be empty"),
         "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),
+        "carBooking": MessageLookupByLibrary.simpleMessage("Car Booking"),
         "carDetails": MessageLookupByLibrary.simpleMessage("Car Details"),
         "cars": MessageLookupByLibrary.simpleMessage("Cars"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The email address is already in use by another account"),
         "emailCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Email address can\'t be empty"),
+        "hallBooking": MessageLookupByLibrary.simpleMessage("Hall Booking"),
         "hallDetails": MessageLookupByLibrary.simpleMessage("Hall Details"),
         "halls": MessageLookupByLibrary.simpleMessage("Halls"),
         "incorrectEmailAddress":
@@ -91,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "subject": MessageLookupByLibrary.simpleMessage("Subject"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "thankYouForYourRating":
+            MessageLookupByLibrary.simpleMessage("Thank you for your rating"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome,"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back,"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),

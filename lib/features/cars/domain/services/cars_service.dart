@@ -1,10 +1,11 @@
+import 'package:event_creator/features/cars/data/models/car_booking_data_model.dart';
 import 'package:event_creator/features/cars/data/models/car_model.dart';
-import 'package:event_creator/features/cars/domain/entities/car_booking_data.dart';
+import 'package:event_creator/features/cars/data/models/car_rating_data_model.dart';
 
 abstract class CarsService {
-  Future<List<CarModel>> getAllHalls();
+  Future<List<CarModel>> getAllCars();
 
-  Future<void> rateCar({required String carId, required double rating});
+  Future<void> rateCar(CarRatingDataModel carRatingDataModel);
 
-  Future<void> bookCar(CarBookingData bookingData);
+  Future<void> bookCar(CarBookingDataModel carBookingDataModel);
 }

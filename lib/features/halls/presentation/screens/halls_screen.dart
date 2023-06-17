@@ -14,6 +14,8 @@ class HallsScreen extends StatefulWidget {
 }
 
 class _HallsScreenState extends State<HallsScreen> {
+  bool _hallsLoaded = false;
+
   @override
   void initState() {
     super.initState();
@@ -23,12 +25,14 @@ class _HallsScreenState extends State<HallsScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HallsCubit, HallsState>(
+      buildWhen: (_, __) => !_hallsLoaded,
       builder: (context, state) {
         if (state is HallsLoading) {
           return const LoadingIndicator();
         } else if (state is HallsError) {
           return const ErrorIndicator();
         } else if (state is GetAllHallsSuccess) {
+          _hallsLoaded = true;
           return ListView.builder(
             itemBuilder: (_, index) => HallItem(state.halls[index]),
             itemCount: state.halls.length,

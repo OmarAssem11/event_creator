@@ -1,8 +1,10 @@
+import 'package:event_creator/features/cars/domain/entities/car_rating_data.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
+import 'package:event_creator/ui/toast.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,13 +58,17 @@ class _CarRatingBarState extends State<CarRatingBar> {
             BlocConsumer<CarsCubit, CarsState>(
               listener: (_, state) {
                 _isLoading = state is CarsLoading;
-                if (state is RateCarSuccess) context.pop();
+                if (state is RateCarSuccess) {
+                  showToast(S.current.thankYouForYourRating);
+                  context.pop();
+                }
               },
               builder: (context, state) {
                 return DefaultElevatedButton(
                   label: S.current.submit,
-                  onPressed: () => BlocProvider.of<CarsCubit>(context)
-                      .rateCar(carId: widget.carId, rating: _rating),
+                  onPressed: () => BlocProvider.of<CarsCubit>(context).rateCar(
+                    CarRatingData(carId: widget.carId, rating: _rating),
+                  ),
                   isLoading: _isLoading,
                 );
               },
