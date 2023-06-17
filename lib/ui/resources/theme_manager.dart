@@ -41,11 +41,11 @@ ThemeData getTheme() => ThemeData(
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: getLightTextStyle(fontSize: FontSize.s16),
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorPalette.primary, width: Sizes.s2),
+          borderSide: BorderSide(color: ColorPalette.grey, width: Sizes.s2),
           borderRadius: BorderRadius.all(Radius.circular(Sizes.s8)),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorPalette.primary, width: Sizes.s2),
+          borderSide: BorderSide(color: ColorPalette.grey, width: Sizes.s2),
           borderRadius: BorderRadius.all(Radius.circular(Sizes.s8)),
         ),
         errorBorder: const OutlineInputBorder(

@@ -26,8 +26,6 @@ class HallsCubit extends Cubit<HallsState> {
     hallId: '',
     date: DateTime.now(),
     eventType: EventType.wedding,
-    hairdresserId: '',
-    photographerId: '',
   );
 
   HallsCubit(
@@ -92,7 +90,7 @@ class HallsCubit extends Cubit<HallsState> {
   Future<void> bookHall() async {
     emit(HallsLoading());
     try {
-      await _bookHall(hallBookingData!);
+      await _bookHall(hallBookingData);
       emit(BookHallSuccess());
     } on RemoteException catch (exception) {
       emit(HallsError(exception.message));

@@ -49,7 +49,7 @@ class PhotographerItem extends StatelessWidget {
               Text('${S.current.price} ${photographer.price} ${S.current.egp}'),
               const SizedBox(height: Sizes.s12),
               Text(photographer.description),
-              const SizedBox(height: Sizes.s12),
+              const SizedBox(height: Sizes.s16),
               DefaultOutlinedButton(
                 label: S.current.select,
                 onPressed: () {

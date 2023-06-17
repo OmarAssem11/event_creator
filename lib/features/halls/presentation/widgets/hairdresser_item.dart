@@ -49,7 +49,7 @@ class HairdresserItem extends StatelessWidget {
               Text('${S.current.price} ${hairdresser.price} ${S.current.egp}'),
               const SizedBox(height: Sizes.s12),
               Text(hairdresser.description),
-              const SizedBox(height: Sizes.s12),
+              const SizedBox(height: Sizes.s16),
               DefaultOutlinedButton(
                 label: S.current.select,
                 onPressed: () {

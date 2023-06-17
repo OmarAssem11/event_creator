@@ -1,5 +1,6 @@
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
+import 'package:event_creator/ui/widgets/date_selector.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:event_creator/ui/widgets/default_text_form_field.dart';
 import 'package:event_creator/utils/helper_methods.dart';
@@ -32,6 +33,8 @@ class _HallsSearchState extends State<HallsSearch> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              DateSelector(onDateSelected: (date) => _selectedDate = date),
+              const SizedBox(height: Sizes.s12),
               DefaultTextFormField(
                 controller: _numOfPeoplesController,
                 hintText: S.current.numberOfPeoples,
@@ -60,7 +63,9 @@ class _HallsSearchState extends State<HallsSearch> {
               const SizedBox(height: Sizes.s24),
               DefaultElevatedButton(
                 label: S.current.search,
-                onPressed: () {},
+                onPressed: () {
+                  if (_formKey.currentState?.validate() == true) {}
+                },
               ),
             ],
           ),

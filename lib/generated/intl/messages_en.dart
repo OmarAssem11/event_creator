@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "bookedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Booked Successfully"),
         "canNotBeEmpty":
             MessageLookupByLibrary.simpleMessage("can\'t be empty"),
         "capacity": MessageLookupByLibrary.simpleMessage("Capacity"),

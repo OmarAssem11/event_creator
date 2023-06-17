@@ -4,14 +4,14 @@ class HallBookingData {
   String hallId;
   DateTime date;
   EventType eventType;
-  String hairdresserId;
-  String photographerId;
+  String? hairdresserId;
+  String? photographerId;
 
   HallBookingData({
     required this.hallId,
     required this.date,
     required this.eventType,
-    required this.hairdresserId,
-    required this.photographerId,
+    this.hairdresserId,
+    this.photographerId,
   });
 }

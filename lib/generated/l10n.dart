@@ -699,6 +699,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Booked Successfully`
+  String get bookedSuccessfully {
+    return Intl.message(
+      'Booked Successfully',
+      name: 'bookedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
