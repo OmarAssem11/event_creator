@@ -101,4 +101,13 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailAddressController.dispose();
+    _subjectController.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
 }

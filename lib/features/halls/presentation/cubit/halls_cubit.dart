@@ -1,3 +1,4 @@
+import 'package:event_creator/features/halls/domain/entities/event_type.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
 import 'package:event_creator/features/halls/domain/usecases/book_hall.dart';
@@ -8,10 +9,11 @@ import 'package:event_creator/features/halls/domain/usecases/get_photographers.d
 import 'package:event_creator/features/halls/domain/usecases/rate_hall.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/utils/exception/app_exception.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-@injectable
+@lazySingleton
 class HallsCubit extends Cubit<HallsState> {
   final GetAllHalls _getAllHalls;
   final GetOffersHalls _getOffersHalls;
@@ -19,6 +21,14 @@ class HallsCubit extends Cubit<HallsState> {
   final GetPhotographers _getPhotographers;
   final RateHall _rateHall;
   final BookHall _bookHall;
+  final pageController = PageController();
+  final hallBookingData = HallBookingData(
+    hallId: '',
+    date: DateTime.now(),
+    eventType: EventType.wedding,
+    hairdresserId: '',
+    photographerId: '',
+  );
 
   HallsCubit(
     this._getAllHalls,
@@ -79,13 +89,19 @@ class HallsCubit extends Cubit<HallsState> {
     }
   }
 
-  Future<void> bookHall(HallBookingData hallBookingData) async {
+  Future<void> bookHall() async {
     emit(HallsLoading());
     try {
-      await _bookHall(hallBookingData);
+      await _bookHall(hallBookingData!);
       emit(BookHallSuccess());
     } on RemoteException catch (exception) {
       emit(HallsError(exception.message));
     }
+  }
+
+  @override
+  Future<void> close() {
+    pageController.dispose();
+    return super.close();
   }
 }

@@ -39,11 +39,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create an account"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Create a new account"),
+        "egp": MessageLookupByLibrary.simpleMessage("EGP"),
         "emailAddress": MessageLookupByLibrary.simpleMessage("Email address"),
         "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
             "The email address is already in use by another account"),
         "emailCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Email address can\'t be empty"),
+        "from": MessageLookupByLibrary.simpleMessage("from"),
         "hallBooking": MessageLookupByLibrary.simpleMessage("Hall Booking"),
         "hallDetails": MessageLookupByLibrary.simpleMessage("Hall Details"),
         "halls": MessageLookupByLibrary.simpleMessage("Halls"),
@@ -67,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "model": MessageLookupByLibrary.simpleMessage("Model"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
@@ -82,15 +85,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
         "phoneNumberCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Phone number can\'t be empty"),
+        "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
         "rate": MessageLookupByLibrary.simpleMessage("Rate"),
         "rateThisCar": MessageLookupByLibrary.simpleMessage("Rate this car"),
         "rateThisHall": MessageLookupByLibrary.simpleMessage("Rate this hall"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "select": MessageLookupByLibrary.simpleMessage("Select"),
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "step": MessageLookupByLibrary.simpleMessage("Step"),
         "subject": MessageLookupByLibrary.simpleMessage("Subject"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "thankYouForYourRating":

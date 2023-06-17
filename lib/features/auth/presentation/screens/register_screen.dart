@@ -156,8 +156,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   void dispose() {
+    _nameController.dispose();
     _emailAddressController.dispose();
     _passwordController.dispose();
+    _phoneNumberController.dispose();
     super.dispose();
   }
 }

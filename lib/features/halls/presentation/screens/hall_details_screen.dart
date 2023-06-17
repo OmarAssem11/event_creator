@@ -23,6 +23,7 @@ class HallDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(Insets.l),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(Sizes.s16)),
@@ -58,6 +59,8 @@ class HallDetailsScreen extends StatelessWidget {
                 ]
               ],
             ),
+            const SizedBox(height: Sizes.s12),
+            Text('${S.current.price}: ${hall.price} ${S.current.egp}'),
             const SizedBox(height: Sizes.s12),
             Row(
               children: [

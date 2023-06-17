@@ -1,13 +1,13 @@
 import 'package:event_creator/features/halls/domain/entities/event_type.dart';
 
 class HallBookingData {
-  final String hallId;
-  final DateTime date;
-  final EventType eventType;
-  final String hairdresserId;
-  final String photographerId;
+  String hallId;
+  DateTime date;
+  EventType eventType;
+  String hairdresserId;
+  String photographerId;
 
-  const HallBookingData({
+  HallBookingData({
     required this.hallId,
     required this.date,
     required this.eventType,

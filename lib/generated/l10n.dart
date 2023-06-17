@@ -629,6 +629,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Step`
+  String get step {
+    return Intl.message(
+      'Step',
+      name: 'step',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `from`
+  String get from {
+    return Intl.message(
+      'from',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous`
+  String get previous {
+    return Intl.message(
+      'Previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EGP`
+  String get egp {
+    return Intl.message(
+      'EGP',
+      name: 'egp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select`
+  String get select {
+    return Intl.message(
+      'Select',
+      name: 'select',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

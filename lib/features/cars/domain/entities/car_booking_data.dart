@@ -1,9 +1,9 @@
 class CarBookingData {
-  final String carId;
-  final DateTime startDate;
-  final DateTime endDate;
+  String carId;
+  DateTime startDate;
+  DateTime endDate;
 
-  const CarBookingData({
+  CarBookingData({
     required this.carId,
     required this.startDate,
     required this.endDate,

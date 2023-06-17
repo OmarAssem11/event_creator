@@ -8,7 +8,7 @@ import 'package:event_creator/utils/exception/app_exception.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-@injectable
+@lazySingleton
 class CarsCubit extends Cubit<CarsState> {
   final GetAllCars _getAllCars;
   final RateCar _rateCar;

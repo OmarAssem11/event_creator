@@ -56,5 +56,12 @@
     "rateThisCar": "Rate this car",
     "thankYouForYourRating": "Thank you for your rating", 
     "hallBooking": "Hall Booking",
-    "carBooking": "Car Booking"
+    "carBooking": "Car Booking",
+    "step": "Step",
+    "from": "from",
+    "previous": "Previous",
+    "next": "Next",
+    "price": "Price",
+    "egp": "EGP", 
+    "select": "Select"
 }
