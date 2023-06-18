@@ -1,5 +1,3 @@
-import 'package:event_creator/features/cars/domain/entities/car.dart';
-
 abstract class CarsState {}
 
 class CarsInitial extends CarsState {}
@@ -12,12 +10,10 @@ class CarsError extends CarsState {
   CarsError(this.message);
 }
 
-class GetAllCarsSuccess extends CarsState {
-  final List<Car> cars;
-
-  GetAllCarsSuccess(this.cars);
-}
+class GetAllCarsSuccess extends CarsState {}
 
 class RateCarSuccess extends CarsState {}
 
 class BookCarSuccess extends CarsState {}
+
+class FilterCarsSuccess extends CarsState {}

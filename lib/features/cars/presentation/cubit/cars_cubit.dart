@@ -1,5 +1,7 @@
+import 'package:event_creator/features/cars/domain/entities/car.dart';
 import 'package:event_creator/features/cars/domain/entities/car_booking_data.dart';
 import 'package:event_creator/features/cars/domain/entities/car_rating_data.dart';
+import 'package:event_creator/features/cars/domain/entities/cars_filter.dart';
 import 'package:event_creator/features/cars/domain/usecases/book_car.dart';
 import 'package:event_creator/features/cars/domain/usecases/get_all_cars.dart';
 import 'package:event_creator/features/cars/domain/usecases/rate_car.dart';
@@ -13,6 +15,8 @@ class CarsCubit extends Cubit<CarsState> {
   final GetAllCars _getAllCars;
   final RateCar _rateCar;
   final BookCar _bookCar;
+  List<Car> allCars = [];
+  List<Car> filteredCars = [];
 
   CarsCubit(
     this._getAllCars,
@@ -23,8 +27,8 @@ class CarsCubit extends Cubit<CarsState> {
   Future<void> getAllCars() async {
     emit(CarsLoading());
     try {
-      final cars = await _getAllCars();
-      emit(GetAllCarsSuccess(cars));
+      allCars = await _getAllCars();
+      emit(GetAllCarsSuccess());
     } on RemoteException catch (exception) {
       emit(CarsError(exception.message));
     }
@@ -48,5 +52,12 @@ class CarsCubit extends Cubit<CarsState> {
     } on RemoteException catch (exception) {
       emit(CarsError(exception.message));
     }
+  }
+
+  Future<void> filterCars(CarsFilter carsFilter) async {
+    emit(CarsLoading());
+    await Future.delayed(const Duration(milliseconds: 700));
+    filteredCars = allCars.where((car) => carsFilter.match(car)).toList();
+    emit(FilterCarsSuccess());
   }
 }

@@ -14,12 +14,14 @@ class CarsScreen extends StatefulWidget {
 }
 
 class _CarsScreenState extends State<CarsScreen> {
+  late final CarsCubit _carsCubit;
   bool _carsLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<CarsCubit>(context).getAllCars();
+    _carsCubit = BlocProvider.of<CarsCubit>(context);
+    _carsCubit.getAllCars();
   }
 
   @override
@@ -34,8 +36,8 @@ class _CarsScreenState extends State<CarsScreen> {
         } else if (state is GetAllCarsSuccess) {
           _carsLoaded = true;
           return ListView.builder(
-            itemBuilder: (_, index) => CarItem(state.cars[index]),
-            itemCount: state.cars.length,
+            itemBuilder: (_, index) => CarItem(_carsCubit.allCars[index]),
+            itemCount: _carsCubit.allCars.length,
           );
         } else {
           return const SizedBox();

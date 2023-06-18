@@ -64,5 +64,9 @@
     "price": "Price",
     "egp": "EGP", 
     "select": "Select",
-    "bookedSuccessfully": "Booked Successfully"
+    "bookedSuccessfully": "Booked Successfully",
+    "availableHalls": "Available Halls",
+    "availableCars": "Available Cars",
+    "noAvailableHalls": "No Available Halls",
+    "noAvailableCars": "No Available Cars"
 }

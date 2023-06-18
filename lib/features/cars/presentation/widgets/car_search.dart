@@ -1,10 +1,16 @@
+import 'package:event_creator/features/cars/domain/entities/cars_filter.dart';
+import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
+import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
 import 'package:event_creator/generated/l10n.dart';
+import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:event_creator/ui/widgets/date_selector.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:event_creator/ui/widgets/default_text_form_field.dart';
 import 'package:event_creator/utils/helper_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CarsSearch extends StatefulWidget {
   const CarsSearch();
@@ -19,6 +25,7 @@ class _CarsSearchState extends State<CarsSearch> {
   final _minPriceController = TextEditingController();
   final _maxPriceController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +68,30 @@ class _CarsSearchState extends State<CarsSearch> {
                     validateRegularText(maxPrice, S.current.maxPrice),
               ),
               const SizedBox(height: Sizes.s24),
-              DefaultElevatedButton(
-                label: S.current.search,
-                onPressed: () {
-                  if (_formKey.currentState?.validate() == true) {}
+              BlocConsumer<CarsCubit, CarsState>(
+                listener: (_, state) {
+                  _isLoading = state is CarsLoading;
+                  if (state is FilterCarsSuccess) {
+                    context.pop();
+                    context.pushNamed(Routes.carsSearchResultsScreen);
+                  }
+                },
+                builder: (context, state) {
+                  return DefaultElevatedButton(
+                    label: S.current.search,
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() == true) {
+                        BlocProvider.of<CarsCubit>(context).filterCars(
+                          CarsFilter(
+                            model: _modelController.text,
+                            minPrice: double.parse(_minPriceController.text),
+                            maxPrice: double.parse(_maxPriceController.text),
+                          ),
+                        );
+                      }
+                    },
+                    isLoading: _isLoading,
+                  );
                 },
               ),
             ],
@@ -72,5 +99,13 @@ class _CarsSearchState extends State<CarsSearch> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _modelController.dispose();
+    _minPriceController.dispose();
+    _maxPriceController.dispose();
+    super.dispose();
   }
 }

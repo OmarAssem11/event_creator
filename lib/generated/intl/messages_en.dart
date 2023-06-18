@@ -27,6 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
+        "availableCars": MessageLookupByLibrary.simpleMessage("Available Cars"),
+        "availableHalls":
+            MessageLookupByLibrary.simpleMessage("Available Halls"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
         "bookedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Booked Successfully"),
@@ -73,6 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
+        "noAvailableCars":
+            MessageLookupByLibrary.simpleMessage("No Available Cars"),
+        "noAvailableHalls":
+            MessageLookupByLibrary.simpleMessage("No Available Halls"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
         "numberOfPeoples":

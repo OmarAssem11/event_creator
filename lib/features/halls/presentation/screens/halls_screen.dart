@@ -14,12 +14,14 @@ class HallsScreen extends StatefulWidget {
 }
 
 class _HallsScreenState extends State<HallsScreen> {
+  late final HallsCubit _hallsCubit;
   bool _hallsLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<HallsCubit>(context).getAllHalls();
+    _hallsCubit = BlocProvider.of<HallsCubit>(context);
+    _hallsCubit.getAllHalls();
   }
 
   @override
@@ -34,8 +36,8 @@ class _HallsScreenState extends State<HallsScreen> {
         } else if (state is GetAllHallsSuccess) {
           _hallsLoaded = true;
           return ListView.builder(
-            itemBuilder: (_, index) => HallItem(state.halls[index]),
-            itemCount: state.halls.length,
+            itemBuilder: (_, index) => HallItem(_hallsCubit.allHalls[index]),
+            itemCount: _hallsCubit.allHalls.length,
           );
         } else {
           return const SizedBox();

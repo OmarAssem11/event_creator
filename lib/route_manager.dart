@@ -4,9 +4,11 @@ import 'package:event_creator/features/auth/presentation/screens/register_screen
 import 'package:event_creator/features/cars/domain/entities/car.dart';
 import 'package:event_creator/features/cars/presentation/screens/car_booking_screen.dart';
 import 'package:event_creator/features/cars/presentation/screens/car_details_screen.dart';
+import 'package:event_creator/features/cars/presentation/screens/cars_search_results_screen.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/features/halls/presentation/screens/hall_booking_screen.dart';
 import 'package:event_creator/features/halls/presentation/screens/hall_details_screen.dart';
+import 'package:event_creator/features/halls/presentation/screens/halls_search_results_screen.dart';
 import 'package:event_creator/features/more/presentation/cubit/more_cubit.dart';
 import 'package:event_creator/features/more/presentation/screens/about_us_screen.dart';
 import 'package:event_creator/features/more/presentation/screens/contact_us_screen.dart';
@@ -24,6 +26,8 @@ class Routes {
   static const String carDetails = 'car-details';
   static const String hallBooking = 'hall-booking';
   static const String carBooking = 'car-booking';
+  static const String hallsSearchResultsScreen = 'halls-search-results';
+  static const String carsSearchResultsScreen = 'cars-search-results';
 }
 
 GoRouter router = GoRouter(
@@ -33,6 +37,18 @@ GoRouter router = GoRouter(
       path: Routes.home,
       builder: (_, __) => const HomeLayout(),
       routes: [
+        GoRoute(
+          name: Routes.hallsSearchResultsScreen,
+          path: Routes.hallsSearchResultsScreen,
+          pageBuilder: (_, __) =>
+              const NoTransitionPage(child: HallsSearchResultsScreen()),
+        ),
+        GoRoute(
+          name: Routes.carsSearchResultsScreen,
+          path: Routes.carsSearchResultsScreen,
+          pageBuilder: (_, __) =>
+              const NoTransitionPage(child: CarsSearchResultsScreen()),
+        ),
         GoRoute(
           name: Routes.contactUs,
           path: Routes.contactUs,

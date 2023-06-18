@@ -709,6 +709,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Available Halls`
+  String get availableHalls {
+    return Intl.message(
+      'Available Halls',
+      name: 'availableHalls',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available Cars`
+  String get availableCars {
+    return Intl.message(
+      'Available Cars',
+      name: 'availableCars',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Available Halls`
+  String get noAvailableHalls {
+    return Intl.message(
+      'No Available Halls',
+      name: 'noAvailableHalls',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Available Cars`
+  String get noAvailableCars {
+    return Intl.message(
+      'No Available Cars',
+      name: 'noAvailableCars',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -14,11 +14,7 @@ class HallsError extends HallsState {
   HallsError(this.message);
 }
 
-class GetAllHallsSuccess extends HallsState {
-  final List<Hall> halls;
-
-  GetAllHallsSuccess(this.halls);
-}
+class GetAllHallsSuccess extends HallsState {}
 
 class GetOffersHallsSuccess extends HallsState {
   final List<Hall> halls;
@@ -41,3 +37,5 @@ class GetPhotographersSuccess extends HallsState {
 class RateHallSuccess extends HallsState {}
 
 class BookHallSuccess extends HallsState {}
+
+class FilterHallsSuccess extends HallsState {}

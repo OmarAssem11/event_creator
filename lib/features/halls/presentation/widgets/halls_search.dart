@@ -1,10 +1,16 @@
+import 'package:event_creator/features/halls/domain/entities/halls_filter.dart';
+import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
+import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/generated/l10n.dart';
+import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:event_creator/ui/widgets/date_selector.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:event_creator/ui/widgets/default_text_form_field.dart';
 import 'package:event_creator/utils/helper_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HallsSearch extends StatefulWidget {
   const HallsSearch();
@@ -19,6 +25,7 @@ class _HallsSearchState extends State<HallsSearch> {
   final _minPriceController = TextEditingController();
   final _maxPriceController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +68,31 @@ class _HallsSearchState extends State<HallsSearch> {
                     validateRegularText(maxPrice, S.current.maxPrice),
               ),
               const SizedBox(height: Sizes.s24),
-              DefaultElevatedButton(
-                label: S.current.search,
-                onPressed: () {
-                  if (_formKey.currentState?.validate() == true) {}
+              BlocConsumer<HallsCubit, HallsState>(
+                listener: (_, state) {
+                  _isLoading = state is HallsLoading;
+                  if (state is FilterHallsSuccess) {
+                    context.pop();
+                    context.pushNamed(Routes.hallsSearchResultsScreen);
+                  }
+                },
+                builder: (context, state) {
+                  return DefaultElevatedButton(
+                    label: S.current.search,
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() == true) {
+                        BlocProvider.of<HallsCubit>(context).filterHalls(
+                          HallsFilter(
+                            minPrice: double.parse(_minPriceController.text),
+                            maxPrice: double.parse(_maxPriceController.text),
+                            numOfPeople:
+                                int.parse(_numOfPeoplesController.text),
+                          ),
+                        );
+                      }
+                    },
+                    isLoading: _isLoading,
+                  );
                 },
               ),
             ],
@@ -72,5 +100,13 @@ class _HallsSearchState extends State<HallsSearch> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _numOfPeoplesController.dispose();
+    _minPriceController.dispose();
+    _maxPriceController.dispose();
+    super.dispose();
   }
 }
