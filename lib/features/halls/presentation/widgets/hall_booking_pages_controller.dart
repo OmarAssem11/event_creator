@@ -18,7 +18,6 @@ class _HallBookingPagesControllerState
     extends State<HallBookingPagesController> {
   late final HallsCubit _hallsCubit;
   int _currentPageIndex = 0;
-  String _secondButtonLabel = S.current.next;
 
   @override
   void initState() {
@@ -38,7 +37,6 @@ class _HallBookingPagesControllerState
             } else {
               setState(() {
                 _currentPageIndex--;
-                _secondButtonLabel = S.current.next;
                 _hallsCubit.pageController.previousPage(
                   duration: const Duration(milliseconds: 700),
                   curve: Curves.easeInOut,
@@ -53,22 +51,22 @@ class _HallBookingPagesControllerState
           count: 3,
           size: const Size(Sizes.s60, Sizes.s16),
         ),
-        TextButton(
-          onPressed: () {
-            if (_currentPageIndex == 2) {
-              _hallsCubit.bookHall();
-            } else {
-              if (_currentPageIndex == 1) _secondButtonLabel = S.current.book;
+        if (_currentPageIndex == 2)
+          TextButton(
+            onPressed: _hallsCubit.bookHall,
+            child: Text(S.current.book),
+          )
+        else
+          TextButton(
+            onPressed: () => setState(() {
               _currentPageIndex++;
               _hallsCubit.pageController.nextPage(
                 duration: const Duration(milliseconds: 700),
                 curve: Curves.easeInOut,
               );
-            }
-            setState(() {});
-          },
-          child: Text(_secondButtonLabel),
-        ),
+            }),
+            child: Text(S.current.next),
+          ),
       ],
     );
   }

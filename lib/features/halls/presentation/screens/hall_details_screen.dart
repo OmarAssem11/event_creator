@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
+import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
 import 'package:event_creator/features/halls/presentation/widgets/hall_rating_bar.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/route_manager.dart';
@@ -7,6 +8,7 @@ import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HallDetailsScreen extends StatelessWidget {
@@ -67,7 +69,12 @@ class HallDetailsScreen extends StatelessWidget {
                 Expanded(
                   child: DefaultElevatedButton(
                     label: S.current.book,
-                    onPressed: () => context.pushNamed(Routes.hallBooking),
+                    onPressed: () {
+                      BlocProvider.of<HallsCubit>(context)
+                          .hallBookingData
+                          .hallId = hall.id;
+                      context.pushNamed(Routes.hallBooking);
+                    },
                   ),
                 ),
                 const SizedBox(width: Sizes.s8),

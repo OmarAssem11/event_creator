@@ -17,6 +17,11 @@ class CarsCubit extends Cubit<CarsState> {
   final BookCar _bookCar;
   List<Car> allCars = [];
   List<Car> filteredCars = [];
+  final carBookingData = CarBookingData(
+    carId: '',
+    startDate: DateTime.now(),
+    endDate: DateTime.now(),
+  );
 
   CarsCubit(
     this._getAllCars,
@@ -44,7 +49,7 @@ class CarsCubit extends Cubit<CarsState> {
     }
   }
 
-  Future<void> bookCar(CarBookingData carBookingData) async {
+  Future<void> bookCar() async {
     emit(CarsLoading());
     try {
       await _bookCar(carBookingData);

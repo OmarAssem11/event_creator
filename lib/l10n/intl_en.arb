@@ -68,5 +68,7 @@
     "availableHalls": "Available Halls",
     "availableCars": "Available Cars",
     "noAvailableHalls": "No Available Halls",
-    "noAvailableCars": "No Available Cars"
+    "noAvailableCars": "No Available Cars",
+    "startDate": "Start Date",
+    "endDate": "End Date"
 }

@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The email address is already in use by another account"),
         "emailCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Email address can\'t be empty"),
+        "endDate": MessageLookupByLibrary.simpleMessage("End Date"),
         "from": MessageLookupByLibrary.simpleMessage("from"),
         "hallBooking": MessageLookupByLibrary.simpleMessage("Hall Booking"),
         "hallDetails": MessageLookupByLibrary.simpleMessage("Hall Details"),
@@ -106,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "startDate": MessageLookupByLibrary.simpleMessage("Start Date"),
         "step": MessageLookupByLibrary.simpleMessage("Step"),
         "subject": MessageLookupByLibrary.simpleMessage("Subject"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
