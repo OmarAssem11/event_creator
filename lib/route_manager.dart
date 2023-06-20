@@ -17,9 +17,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
-  static const String home = '/';
-  static const String register = '/register';
+  static const String register = '/';
   static const String emailPasswordLogin = '/email-password-login';
+  static const String home = '/home';
   static const String contactUs = 'contactUs';
   static const String aboutUs = 'aboutUs';
   static const String hallDetails = 'hall-details';

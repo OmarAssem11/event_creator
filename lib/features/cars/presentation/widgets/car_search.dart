@@ -24,7 +24,8 @@ class _CarsSearchState extends State<CarsSearch> {
   final _modelController = TextEditingController();
   final _minPriceController = TextEditingController();
   final _maxPriceController = TextEditingController();
-  DateTime _selectedDate = DateTime.now();
+  DateTime _selectedStartDate = DateTime.now();
+  DateTime _selectedEndDate = DateTime.now();
   bool _isLoading = false;
 
   @override
@@ -39,8 +40,37 @@ class _CarsSearchState extends State<CarsSearch> {
           key: _formKey,
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DateSelector(onDateSelected: (date) => _selectedDate = date),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(S.current.startDate),
+                        const SizedBox(height: Sizes.s4),
+                        DateSelector(
+                          onDateSelected: (date) => _selectedStartDate = date,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: Sizes.s8),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(S.current.endDate),
+                        const SizedBox(height: Sizes.s4),
+                        DateSelector(
+                          onDateSelected: (date) => _selectedEndDate = date,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: Sizes.s12),
               DefaultTextFormField(
                 controller: _modelController,
@@ -83,6 +113,8 @@ class _CarsSearchState extends State<CarsSearch> {
                       if (_formKey.currentState?.validate() == true) {
                         BlocProvider.of<CarsCubit>(context).filterCars(
                           CarsFilter(
+                            startDate: _selectedStartDate,
+                            endDate: _selectedEndDate,
                             model: _modelController.text,
                             minPrice: double.parse(_minPriceController.text),
                             maxPrice: double.parse(_maxPriceController.text),

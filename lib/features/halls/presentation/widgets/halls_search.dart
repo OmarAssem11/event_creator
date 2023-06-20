@@ -83,6 +83,7 @@ class _HallsSearchState extends State<HallsSearch> {
                       if (_formKey.currentState?.validate() == true) {
                         BlocProvider.of<HallsCubit>(context).filterHalls(
                           HallsFilter(
+                            date: _selectedDate,
                             minPrice: double.parse(_minPriceController.text),
                             maxPrice: double.parse(_maxPriceController.text),
                             numOfPeople:

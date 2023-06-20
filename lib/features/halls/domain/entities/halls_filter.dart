@@ -1,11 +1,13 @@
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
 
 class HallsFilter {
+  final DateTime date;
   final int numOfPeople;
   final double minPrice;
   final double maxPrice;
 
   const HallsFilter({
+    required this.date,
     required this.numOfPeople,
     required this.minPrice,
     required this.maxPrice,

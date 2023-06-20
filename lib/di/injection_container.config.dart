@@ -107,8 +107,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.Dio>(() => appModule.dio);
     gh.lazySingleton<_i8.HallsService>(
         () => _i9.HallsHTTPService(gh<_i7.Dio>()));
-    gh.lazySingleton<_i10.MoreService>(
-        () => _i11.MoreHTTPService(gh<_i7.Dio>()));
+    gh.lazySingleton<_i10.MoreService>(() => _i11.MoreHTTPService());
     gh.singleton<_i6.TokenInterceptor>(_i6.TokenInterceptor(
       gh<_i3.CacheService>(),
       gh<_i6.ConnectivityManager>(),

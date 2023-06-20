@@ -26,8 +26,11 @@ class _DateSelectorState extends State<DateSelector> {
         ),
         child: Row(
           children: [
-            const Icon(Icons.date_range_outlined),
-            const SizedBox(width: Sizes.s12),
+            const Icon(
+              Icons.date_range_outlined,
+              size: Sizes.s20,
+            ),
+            const SizedBox(width: Sizes.s8),
             Text(
               '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
               style: Theme.of(context).textTheme.titleMedium,

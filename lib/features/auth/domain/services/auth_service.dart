@@ -1,10 +1,12 @@
-import 'package:event_creator/features/auth/domain/entities/login_data.dart';
-import 'package:event_creator/features/auth/domain/entities/register_data.dart';
+import 'package:event_creator/features/auth/data/models/login_data_model.dart';
+import 'package:event_creator/features/auth/data/models/register_data_model.dart';
 
 abstract class AuthService {
-  Future<Token> registerWithEmailAndPassword(RegisterData registerData);
+  Future<Token> registerWithEmailAndPassword(
+    RegisterDataModel registerDataModel,
+  );
 
-  Future<Token> loginWithEmailAndPassword(LoginData loginData);
+  Future<Token> loginWithEmailAndPassword(LoginDataModel loginDataModel);
 }
 
 class Token {
