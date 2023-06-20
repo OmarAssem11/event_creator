@@ -9,8 +9,33 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/person1.jpg
+  AssetGenImage get person1 => const AssetGenImage('assets/images/person1.jpg');
+
+  /// File path: assets/images/person2.jpg
+  AssetGenImage get person2 => const AssetGenImage('assets/images/person2.jpg');
+
+  /// File path: assets/images/person3.jpg
+  AssetGenImage get person3 => const AssetGenImage('assets/images/person3.jpg');
+
+  /// File path: assets/images/person4.jpg
+  AssetGenImage get person4 => const AssetGenImage('assets/images/person4.jpg');
+
+  /// File path: assets/images/person5.jpg
+  AssetGenImage get person5 => const AssetGenImage('assets/images/person5.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [person1, person2, person3, person4, person5];
+}
+
 class Assets {
   Assets._();
+
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

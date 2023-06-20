@@ -145,7 +145,7 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i31.GetOffersHalls(gh<_i16.HallsRepository>()));
     gh.lazySingleton<_i32.GetPhotographers>(
         () => _i32.GetPhotographers(gh<_i16.HallsRepository>()));
-    gh.factory<_i33.HallsCubit>(() => _i33.HallsCubit(
+    gh.lazySingleton<_i33.HallsCubit>(() => _i33.HallsCubit(
           gh<_i28.GetAllHalls>(),
           gh<_i31.GetOffersHalls>(),
           gh<_i30.GetHairdressers>(),
@@ -169,7 +169,7 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.lazySingleton<_i40.BookCar>(
         () => _i40.BookCar(gh<_i24.CarsRepository>()));
-    gh.factory<_i41.CarsCubit>(() => _i41.CarsCubit(
+    gh.lazySingleton<_i41.CarsCubit>(() => _i41.CarsCubit(
           gh<_i27.GetAllCars>(),
           gh<_i37.RateCar>(),
           gh<_i40.BookCar>(),
