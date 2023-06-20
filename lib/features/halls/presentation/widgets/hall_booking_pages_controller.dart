@@ -6,14 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BookingPagesControl extends StatefulWidget {
-  const BookingPagesControl();
+class HallBookingPagesController extends StatefulWidget {
+  const HallBookingPagesController();
 
   @override
-  State<BookingPagesControl> createState() => _BookingPagesControlState();
+  State<HallBookingPagesController> createState() =>
+      _HallBookingPagesControllerState();
 }
 
-class _BookingPagesControlState extends State<BookingPagesControl> {
+class _HallBookingPagesControllerState
+    extends State<HallBookingPagesController> {
   late final HallsCubit _hallsCubit;
   int _currentPageIndex = 0;
   String _secondButtonLabel = S.current.next;
@@ -34,8 +36,9 @@ class _BookingPagesControlState extends State<BookingPagesControl> {
             if (_currentPageIndex == 0) {
               context.pop();
             } else {
-              _currentPageIndex--;
               setState(() {
+                _currentPageIndex--;
+                _secondButtonLabel = S.current.next;
                 _hallsCubit.pageController.previousPage(
                   duration: const Duration(milliseconds: 700),
                   curve: Curves.easeInOut,

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class GenderRadioButtonGroup extends StatefulWidget {
   const GenderRadioButtonGroup({required this.onChanged});
 
-  final Function(Gender) onChanged;
+  final void Function(Gender) onChanged;
 
   @override
   State<GenderRadioButtonGroup> createState() => _GenderRadioButtonGroupState();
 }
 
 class _GenderRadioButtonGroupState extends State<GenderRadioButtonGroup> {
-  final _genders = [Gender.male, Gender.female];
+  final _genders = Gender.values;
   late Gender _selectedGender = _genders.first;
 
   @override

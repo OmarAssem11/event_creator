@@ -1,3 +1,4 @@
+import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _DateSelectorState extends State<DateSelector> {
       child: Container(
         padding: const EdgeInsets.all(Insets.s),
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: Border.all(color: ColorPalette.grey, width: Sizes.s2),
           borderRadius: const BorderRadius.all(Radius.circular(Sizes.s8)),
         ),
         child: Row(
@@ -29,6 +30,7 @@ class _DateSelectorState extends State<DateSelector> {
             const SizedBox(width: Sizes.s12),
             Text(
               '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
+              style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
           ],

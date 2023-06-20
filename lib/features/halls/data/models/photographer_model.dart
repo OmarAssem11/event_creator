@@ -15,10 +15,10 @@ class PhotographerModel {
 
   PhotographerModel.fromJson(Map<String, dynamic> json)
       : this(
-          id: json['id'] as String,
+          id: (json['id'] as int).toString(),
           description: json['des'] as String,
           imageUrl: json['paths'] as String,
-          price: double.parse(json['price'] as String),
+          price: (json['price'] as num).toDouble(),
           phoneNumber: json['phone'] as String,
         );
 }

@@ -19,11 +19,11 @@ class CarModel {
 
   CarModel.fromJson(Map<String, dynamic> json)
       : this(
-          id: json['id'] as String,
+          id: (json['id'] as int).toString(),
           description: json['des'] as String,
           imageUrl: json['paths'] as String,
-          price: double.parse(json['price'] as String),
-          rating: double.parse(json['num_rate'] as String),
+          price: (json['price'] as num).toDouble(),
+          rating: (json['num_rate'] as num).toDouble(),
           brand: json['brand'] as String,
           model: json['model'] as String,
         );
