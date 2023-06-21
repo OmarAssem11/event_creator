@@ -13,5 +13,6 @@ class CarBookingDataModel {
         'car_id': carId,
         'start_date': startDate,
         'end_date': endDate,
+        'user_id': '1',
       };
 }

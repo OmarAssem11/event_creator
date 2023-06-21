@@ -11,6 +11,7 @@ import 'package:event_creator/features/halls/domain/entities/hall_rating_data.da
 import 'package:event_creator/features/halls/domain/entities/photographer.dart';
 import 'package:event_creator/features/halls/domain/repository/halls_repository.dart';
 import 'package:event_creator/features/halls/domain/services/halls_service.dart';
+import 'package:event_creator/utils/helper_methods.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: HallsRepository)
@@ -97,7 +98,7 @@ extension HallRatingDataModelMapper on HallRatingData {
 extension HallBookingDataModelMapper on HallBookingData {
   HallBookingDataModel get fromEntity => HallBookingDataModel(
         hallId: hallId,
-        date: date.toIso8601String(),
+        date: formatDateTime(date),
         eventType: eventType.text,
         hairdresserId: hairdresserId,
         photographerId: photographerId,

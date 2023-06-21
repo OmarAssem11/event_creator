@@ -10,5 +10,6 @@ class HallRatingDataModel {
   Map<String, dynamic> toJson() => {
         'hall_id': hallId,
         'rating': rating,
+        'user_id': '1',
       };
 }

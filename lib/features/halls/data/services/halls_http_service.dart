@@ -6,6 +6,7 @@ import 'package:event_creator/features/halls/data/models/hall_rating_data_model.
 import 'package:event_creator/features/halls/data/models/photographer_model.dart';
 import 'package:event_creator/features/halls/domain/services/halls_service.dart';
 import 'package:event_creator/utils/constants.dart';
+import 'package:event_creator/utils/exception/app_exception.dart';
 import 'package:event_creator/utils/exception/create_remote_exception.dart';
 import 'package:injectable/injectable.dart';
 
@@ -78,7 +79,15 @@ class HallsHTTPService implements HallsService {
   @override
   Future<void> rateHall(HallRatingDataModel hallRatingDataModel) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 700));
+      final formData = FormData.fromMap(hallRatingDataModel.toJson());
+      final response = await _dio.post(
+        HostConstants.rateHallEndpoint,
+        data: formData,
+      );
+      final responseJson = response.data as Map<String, dynamic>;
+      if (responseJson['sucess'] != 'Success') {
+        throw UnknownAuthRemoteException();
+      }
     } catch (exception) {
       throw createRemoteException(exception);
     }
@@ -87,7 +96,15 @@ class HallsHTTPService implements HallsService {
   @override
   Future<void> bookHall(HallBookingDataModel hallBookingDataModel) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 700));
+      final formData = FormData.fromMap(hallBookingDataModel.toJson());
+      final response = await _dio.post(
+        HostConstants.hallBookingEndpoint,
+        data: formData,
+      );
+      final responseJson = response.data as Map<String, dynamic>;
+      if (responseJson['sucess'] != 'Success') {
+        throw UnknownAuthRemoteException();
+      }
     } catch (exception) {
       throw createRemoteException(exception);
     }

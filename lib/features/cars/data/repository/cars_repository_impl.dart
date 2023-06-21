@@ -6,6 +6,7 @@ import 'package:event_creator/features/cars/domain/entities/car_booking_data.dar
 import 'package:event_creator/features/cars/domain/entities/car_rating_data.dart';
 import 'package:event_creator/features/cars/domain/repository/cars_repository.dart';
 import 'package:event_creator/features/cars/domain/services/cars_service.dart';
+import 'package:event_creator/utils/helper_methods.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: CarsRepository)
@@ -51,7 +52,7 @@ extension CarRatingDataModelMapper on CarRatingData {
 extension CarBookingDataModelMapper on CarBookingData {
   CarBookingDataModel get fromEntity => CarBookingDataModel(
         carId: carId,
-        startDate: startDate.toIso8601String(),
-        endDate: endDate.toIso8601String(),
+        startDate: formatDateTime(startDate),
+        endDate: formatDateTime(endDate),
       );
 }

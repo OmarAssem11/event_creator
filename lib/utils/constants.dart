@@ -8,11 +8,12 @@ class HostConstants {
   static const String getHairdressersEndpoint = 'hairdressers.php';
   static const String getOffersHallsEndpoint = 'offers.php';
   static const String getAllCarsEndpoint = 'cars.php';
-  static const String hallsCheckNowEndpoint = '';
-  static const String carsCheckNowEndpoint = '';
-  static const String hallBookingEndpoint = '';
-  static const String carBookingEndpoint = '';
-  static const String contactUsEndpoint = '';
+  static const String checkHallEndpoint = '';
+  static const String checkCarEndpoint = '';
+  static const String hallBookingEndpoint = 'bookhalls.php';
+  static const String carBookingEndpoint = 'bookcar.php';
+  static const String rateHallEndpoint = 'ratehall.php';
+  static const String rateCarEndpoint = 'ratecar.php';
 }
 
 class CacheConstants {

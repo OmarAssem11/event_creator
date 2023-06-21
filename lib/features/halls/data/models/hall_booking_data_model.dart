@@ -19,5 +19,6 @@ class HallBookingDataModel {
         'event_type': eventType,
         'hairdresser_id': hairdresserId,
         'photographer_id': photographerId,
+        'user_id': '1',
       };
 }

@@ -4,6 +4,7 @@ import 'package:event_creator/features/cars/data/models/car_model.dart';
 import 'package:event_creator/features/cars/data/models/car_rating_data_model.dart';
 import 'package:event_creator/features/cars/domain/services/cars_service.dart';
 import 'package:event_creator/utils/constants.dart';
+import 'package:event_creator/utils/exception/app_exception.dart';
 import 'package:event_creator/utils/exception/create_remote_exception.dart';
 import 'package:injectable/injectable.dart';
 
@@ -30,7 +31,15 @@ class CarsHTTPService implements CarsService {
   @override
   Future<void> rateCar(CarRatingDataModel carRatingDataModel) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 700));
+      final formData = FormData.fromMap(carRatingDataModel.toJson());
+      final response = await _dio.post(
+        HostConstants.rateCarEndpoint,
+        data: formData,
+      );
+      final responseJson = response.data as Map<String, dynamic>;
+      if (responseJson['sucess'] != 'Success') {
+        throw UnknownAuthRemoteException();
+      }
     } catch (exception) {
       throw createRemoteException(exception);
     }
@@ -39,7 +48,15 @@ class CarsHTTPService implements CarsService {
   @override
   Future<void> bookCar(CarBookingDataModel carBookingDataModel) async {
     try {
-      return await Future.delayed(const Duration(milliseconds: 700));
+      final formData = FormData.fromMap(carBookingDataModel.toJson());
+      final response = await _dio.post(
+        HostConstants.carBookingEndpoint,
+        data: formData,
+      );
+      final responseJson = response.data as Map<String, dynamic>;
+      if (responseJson['sucess'] != 'Success') {
+        throw UnknownAuthRemoteException();
+      }
     } catch (exception) {
       throw createRemoteException(exception);
     }

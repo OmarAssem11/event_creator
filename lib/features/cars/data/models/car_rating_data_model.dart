@@ -10,5 +10,6 @@ class CarRatingDataModel {
   Map<String, dynamic> toJson() => {
         'car_id': carId,
         'rating': rating,
+        'user_id': '1',
       };
 }
