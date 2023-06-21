@@ -37,6 +37,20 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
           padding: const EdgeInsets.all(Insets.s),
           child: Column(
             children: [
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: ColorPalette.grey,
+                    width: Sizes.s4,
+                  ),
+                ),
+                child: CircleAvatar(
+                  radius: MediaQuery.of(context).size.width * 0.25,
+                  backgroundImage: AssetImage(widget.teamMember.imagePath),
+                ),
+              ),
+              const SizedBox(height: Sizes.s12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -53,18 +67,12 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                 ],
               ),
               const SizedBox(height: Sizes.s12),
-              ClipRRect(
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(Sizes.s16)),
-                child: Image.asset(
-                  widget.teamMember.imagePath,
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: double.infinity,
-                ),
+              Text(
+                widget.teamMember.description,
+                style: _textTheme.bodyMedium
+                    ?.copyWith(color: ColorPalette.darkGrey),
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: Sizes.s12),
-              Text(widget.teamMember.description),
             ],
           ),
         ),

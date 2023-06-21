@@ -34,7 +34,7 @@ TextStyle _getTextStyle({
     );
 
 TextStyle getLightTextStyle({
-  Color color = ColorPalette.secondary,
+  Color color = ColorPalette.black,
   double fontSize = FontSize.s12,
 }) =>
     _getTextStyle(
@@ -44,7 +44,7 @@ TextStyle getLightTextStyle({
     );
 
 TextStyle getRegularTextStyle({
-  Color color = ColorPalette.secondary,
+  Color color = ColorPalette.black,
   double fontSize = FontSize.s12,
 }) =>
     _getTextStyle(
@@ -54,7 +54,7 @@ TextStyle getRegularTextStyle({
     );
 
 TextStyle getMediumTextStyle({
-  Color color = ColorPalette.secondary,
+  Color color = ColorPalette.black,
   double fontSize = FontSize.s12,
 }) =>
     _getTextStyle(
@@ -64,7 +64,7 @@ TextStyle getMediumTextStyle({
     );
 
 TextStyle getSemiBoldTextStyle({
-  Color color = ColorPalette.secondary,
+  Color color = ColorPalette.black,
   double fontSize = FontSize.s12,
 }) =>
     _getTextStyle(
@@ -74,7 +74,7 @@ TextStyle getSemiBoldTextStyle({
     );
 
 TextStyle getBoldTextStyle({
-  Color color = ColorPalette.secondary,
+  Color color = ColorPalette.black,
   double fontSize = FontSize.s12,
 }) =>
     _getTextStyle(

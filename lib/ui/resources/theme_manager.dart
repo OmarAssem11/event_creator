@@ -86,7 +86,7 @@ ThemeData getTheme() => ThemeData(
           textStyle: getMediumTextStyle(
             fontSize: FontSize.s14,
           ),
-          foregroundColor: ColorPalette.secondary,
+          foregroundColor: ColorPalette.primary,
         ),
       ),
       dividerTheme: const DividerThemeData(
@@ -105,6 +105,9 @@ ThemeData getTheme() => ThemeData(
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: ColorPalette.primary,
+      ),
+      radioTheme: const RadioThemeData(
+        fillColor: MaterialStatePropertyAll(ColorPalette.primary),
       ),
       textTheme: TextTheme(
         displaySmall: getRegularTextStyle(fontSize: FontSize.s36),

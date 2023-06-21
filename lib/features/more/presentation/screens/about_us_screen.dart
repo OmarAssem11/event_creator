@@ -14,34 +14,28 @@ class AboutUsScreen extends StatefulWidget {
 class _AboutUsScreenState extends State<AboutUsScreen> {
   final _teamMembers = [
     TeamMember(
-      name: 'Name Name',
-      title: 'Title',
+      name: 'Abelrahman Shoukry',
+      title: 'Team Leader - Web Developer',
       description: 'description ' * 20,
-      imagePath: Assets.images.person1.path,
+      imagePath: Assets.images.abdelrahman.path,
     ),
     TeamMember(
-      name: 'Name Name',
-      title: 'Title',
+      name: 'Eslam Khedr',
+      title: 'Web Developer',
       description: 'description ' * 20,
-      imagePath: Assets.images.person2.path,
+      imagePath: Assets.images.eslam.path,
     ),
     TeamMember(
-      name: 'Name Name',
-      title: 'Title',
+      name: 'Mohamed Ezzat',
+      title: 'Flutter Developer',
       description: 'description ' * 20,
-      imagePath: Assets.images.person3.path,
+      imagePath: Assets.images.mohamed.path,
     ),
     TeamMember(
-      name: 'Name Name',
-      title: 'Title',
+      name: 'Arsany',
+      title: 'Flutter Developer',
       description: 'description ' * 20,
-      imagePath: Assets.images.person4.path,
-    ),
-    TeamMember(
-      name: 'Name Name',
-      title: 'Title',
-      description: 'description ' * 20,
-      imagePath: Assets.images.person5.path,
+      imagePath: Assets.images.arsany.path,
     ),
   ];
 
