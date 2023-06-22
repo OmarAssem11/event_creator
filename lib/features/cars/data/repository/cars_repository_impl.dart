@@ -3,6 +3,7 @@ import 'package:event_creator/features/cars/data/models/car_model.dart';
 import 'package:event_creator/features/cars/data/models/car_rating_data_model.dart';
 import 'package:event_creator/features/cars/domain/entities/car.dart';
 import 'package:event_creator/features/cars/domain/entities/car_booking_data.dart';
+import 'package:event_creator/features/cars/domain/entities/car_brand.dart';
 import 'package:event_creator/features/cars/domain/entities/car_rating_data.dart';
 import 'package:event_creator/features/cars/domain/repository/cars_repository.dart';
 import 'package:event_creator/features/cars/domain/services/cars_service.dart';
@@ -37,7 +38,7 @@ extension CarMapper on CarModel {
         imageUrl: imageUrl,
         price: price,
         rating: rating,
-        brand: brand,
+        brand: CarBrand.fromText(brand),
         model: model,
       );
 }

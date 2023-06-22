@@ -1,6 +1,10 @@
+import 'package:event_creator/features/cars/domain/entities/car_brand.dart';
+import 'package:event_creator/features/cars/domain/entities/car_option.dart';
 import 'package:event_creator/features/cars/domain/entities/cars_filter.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
+import 'package:event_creator/features/cars/presentation/widgets/car_brand_drop_down_button.dart';
+import 'package:event_creator/features/cars/presentation/widgets/car_option_drop_down_button.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
@@ -21,11 +25,12 @@ class CarsSearch extends StatefulWidget {
 
 class _CarsSearchState extends State<CarsSearch> {
   final _formKey = GlobalKey<FormState>();
-  final _modelController = TextEditingController();
   final _minPriceController = TextEditingController();
   final _maxPriceController = TextEditingController();
   DateTime _selectedStartDate = DateTime.now();
   DateTime _selectedEndDate = DateTime.now();
+  CarBrand _selectedCarBrand = CarBrand.volvo;
+  CarOption _selectedCarOption = CarOption.gpsNavigator;
   bool _isLoading = false;
 
   @override
@@ -48,7 +53,7 @@ class _CarsSearchState extends State<CarsSearch> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(S.current.startDate),
+                        Text(S.current.pickupDate),
                         const SizedBox(height: Sizes.s4),
                         DateSelector(
                           onDateSelected: (date) => _selectedStartDate = date,
@@ -61,7 +66,7 @@ class _CarsSearchState extends State<CarsSearch> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(S.current.endDate),
+                        Text(S.current.returnDate),
                         const SizedBox(height: Sizes.s4),
                         DateSelector(
                           onDateSelected: (date) => _selectedEndDate = date,
@@ -72,30 +77,36 @@ class _CarsSearchState extends State<CarsSearch> {
                 ],
               ),
               const SizedBox(height: Sizes.s12),
-              DefaultTextFormField(
-                controller: _modelController,
-                hintText: S.current.model,
-                keyboardType: TextInputType.text,
-                validator: (model) => validateRegularText(
-                  model,
-                  S.current.model,
-                ),
+              CarBrandDropDownButton(
+                onChanged: (carBrand) => _selectedCarBrand = carBrand,
               ),
               const SizedBox(height: Sizes.s12),
-              DefaultTextFormField(
-                controller: _minPriceController,
-                hintText: S.current.minPrice,
-                keyboardType: TextInputType.number,
-                validator: (minPrice) =>
-                    validateRegularText(minPrice, S.current.minPrice),
+              CarOptionDropDownButton(
+                onChanged: (carOption) => _selectedCarOption = carOption,
               ),
               const SizedBox(height: Sizes.s12),
-              DefaultTextFormField(
-                controller: _maxPriceController,
-                hintText: S.current.maxPrice,
-                keyboardType: TextInputType.number,
-                validator: (maxPrice) =>
-                    validateRegularText(maxPrice, S.current.maxPrice),
+              Row(
+                children: [
+                  Expanded(
+                    child: DefaultTextFormField(
+                      controller: _minPriceController,
+                      hintText: S.current.minPrice,
+                      keyboardType: TextInputType.number,
+                      validator: (minPrice) =>
+                          validateRegularText(minPrice, S.current.minPrice),
+                    ),
+                  ),
+                  const SizedBox(width: Sizes.s8),
+                  Expanded(
+                    child: DefaultTextFormField(
+                      controller: _maxPriceController,
+                      hintText: S.current.maxPrice,
+                      keyboardType: TextInputType.number,
+                      validator: (maxPrice) =>
+                          validateRegularText(maxPrice, S.current.maxPrice),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: Sizes.s24),
               BlocConsumer<CarsCubit, CarsState>(
@@ -115,7 +126,8 @@ class _CarsSearchState extends State<CarsSearch> {
                           CarsFilter(
                             startDate: _selectedStartDate,
                             endDate: _selectedEndDate,
-                            model: _modelController.text,
+                            brand: _selectedCarBrand,
+                            option: _selectedCarOption,
                             minPrice: double.parse(_minPriceController.text),
                             maxPrice: double.parse(_maxPriceController.text),
                           ),
@@ -135,7 +147,6 @@ class _CarsSearchState extends State<CarsSearch> {
 
   @override
   void dispose() {
-    _modelController.dispose();
     _minPriceController.dispose();
     _maxPriceController.dispose();
     super.dispose();

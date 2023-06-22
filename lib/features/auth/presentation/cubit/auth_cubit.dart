@@ -15,7 +15,6 @@ class AuthCubit extends Cubit<AuthState> {
   final LoginWithEmailAndPassword _loginWithEmailAndPassword;
   final Logout _logout;
   final GetAuthStatus _getAuthStatus;
-  bool isLoggedIn = false;
 
   AuthCubit(
     this._registerWithEmailAndPassword,
@@ -28,7 +27,6 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await _registerWithEmailAndPassword(registerData);
-      isLoggedIn = true;
       emit(AuthSuccess());
     } on AppException catch (exception) {
       emit(AuthError(exception.message));
@@ -39,7 +37,6 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await _loginWithEmailAndPassword(loginData);
-      isLoggedIn = true;
       emit(AuthSuccess());
     } on AppException catch (exception) {
       emit(AuthError(exception.message));
@@ -50,7 +47,6 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await _logout();
-      isLoggedIn = false;
       emit(LoggedOut());
     } on AppException catch (exception) {
       emit(AuthError(exception.message));
@@ -58,10 +54,12 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> getAuthStatus() async {
+    emit(AuthLoading());
     try {
-      isLoggedIn = await _getAuthStatus();
-    } on AuthRemoteException catch (exception) {
-      emit(AuthError(exception.message));
+      await _getAuthStatus();
+      emit(IsLoggedIn());
+    } on CacheException {
+      emit(NotLoggedIn());
     }
   }
 }

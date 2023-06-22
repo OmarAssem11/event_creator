@@ -13,6 +13,13 @@ class DateSelector extends StatefulWidget {
 
 class _DateSelectorState extends State<DateSelector> {
   DateTime _selectedDate = DateTime.now();
+  late ThemeData _theme;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _theme = Theme.of(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +33,15 @@ class _DateSelectorState extends State<DateSelector> {
         ),
         child: Row(
           children: [
-            const Icon(
-              Icons.date_range_outlined,
+            Icon(
+              Icons.date_range,
               size: Sizes.s20,
+              color: _theme.primaryColor,
             ),
             const SizedBox(width: Sizes.s8),
             Text(
               '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
-              style: Theme.of(context).textTheme.titleMedium,
+              style: _theme.textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
           ],

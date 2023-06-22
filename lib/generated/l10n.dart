@@ -630,16 +630,6 @@ class S {
     );
   }
 
-  /// `Step`
-  String get step {
-    return Intl.message(
-      'Step',
-      name: 'step',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `from`
   String get from {
     return Intl.message(
@@ -750,21 +740,21 @@ class S {
     );
   }
 
-  /// `Start Date`
-  String get startDate {
+  /// `Pickup Date`
+  String get pickupDate {
     return Intl.message(
-      'Start Date',
-      name: 'startDate',
+      'Pickup Date',
+      name: 'pickupDate',
       desc: '',
       args: [],
     );
   }
 
-  /// `End Date`
-  String get endDate {
+  /// `Return Date`
+  String get returnDate {
     return Intl.message(
-      'End Date',
-      name: 'endDate',
+      'Return Date',
+      name: 'returnDate',
       desc: '',
       args: [],
     );

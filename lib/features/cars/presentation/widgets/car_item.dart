@@ -35,6 +35,11 @@ class CarItem extends StatelessWidget {
                       const BorderRadius.all(Radius.circular(Sizes.s16)),
                   child: CachedNetworkImage(
                     imageUrl: car.imageUrl,
+                    errorWidget: (_, __, ___) => const Icon(
+                      Icons.image_outlined,
+                      size: Sizes.s80,
+                      color: ColorPalette.grey,
+                    ),
                     fit: BoxFit.cover,
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: double.infinity,

@@ -19,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> registerWithEmailAndPassword(RegisterData registerData) async {
     final token = await _authService
         .registerWithEmailAndPassword(registerData.fromEntity);
-    return _cacheService.put(
+    return _cacheService.putString(
       CacheConstants.authTokenKey,
       token.value,
     );
@@ -29,21 +29,19 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> loginWithEmailAndPassword(LoginData loginData) async {
     final token =
         await _authService.loginWithEmailAndPassword(loginData.fromEntity);
-    return _cacheService.put(
+    return _cacheService.putString(
       CacheConstants.authTokenKey,
       token.value,
     );
   }
 
   @override
-  Future<void> logout() async {
-    return _cacheService.delete(CacheConstants.authTokenKey);
-  }
+  Future<void> logout() async =>
+      _cacheService.delete(CacheConstants.authTokenKey);
 
   @override
-  Future<bool> getAuthStatus() async {
-    return (await _cacheService.get(CacheConstants.authTokenKey)) is String;
-  }
+  Future<void> getAuthStatus() =>
+      _cacheService.getString(CacheConstants.authTokenKey);
 }
 
 extension RegisterDataModelMapper on RegisterData {

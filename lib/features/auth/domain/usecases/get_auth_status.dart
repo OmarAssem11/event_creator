@@ -7,5 +7,5 @@ class GetAuthStatus {
 
   const GetAuthStatus(this._authRepository);
 
-  Future<bool> call() => _authRepository.getAuthStatus();
+  Future<void> call() => _authRepository.getAuthStatus();
 }

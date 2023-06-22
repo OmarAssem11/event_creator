@@ -1,7 +1,7 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:event_creator/utils/constants.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @module
 abstract class AppModule {
@@ -15,6 +15,7 @@ abstract class AppModule {
     return dio;
   }
 
-  @lazySingleton
-  Connectivity get connectivity => Connectivity();
+  @preResolve
+  Future<SharedPreferences> get sharedPreferences =>
+      SharedPreferences.getInstance();
 }

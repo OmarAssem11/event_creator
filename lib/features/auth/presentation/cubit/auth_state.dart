@@ -13,3 +13,7 @@ class AuthError extends AuthState {
 }
 
 class LoggedOut extends AuthState {}
+
+class IsLoggedIn extends AuthState {}
+
+class NotLoggedIn extends AuthState {}

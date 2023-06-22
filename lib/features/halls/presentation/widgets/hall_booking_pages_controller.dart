@@ -47,6 +47,9 @@ class _HallBookingPagesControllerState
           child: Text(S.current.previous),
         ),
         SmoothIndicator(
+          effect: WormEffect(
+            activeDotColor: Theme.of(context).primaryColor,
+          ),
           offset: _currentPageIndex.toDouble(),
           count: 3,
           size: const Size(Sizes.s60, Sizes.s16),

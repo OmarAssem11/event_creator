@@ -16,25 +16,29 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     TeamMember(
       name: 'Abelrahman Shoukry',
       title: 'Team Leader - Web Developer',
-      description: 'description ' * 20,
+      description:
+          'Proin gravida nibhvell aliquet.\n Aenean sollicitudin bibum\n auctor nisi elit',
       imagePath: Assets.images.abdelrahman.path,
     ),
     TeamMember(
       name: 'Eslam Khedr',
       title: 'Web Developer',
-      description: 'description ' * 20,
+      description:
+          'Proin gravida nibhvell aliquet.\n Aenean sollicitudin bibum\n auctor nisi elit',
       imagePath: Assets.images.eslam.path,
     ),
     TeamMember(
       name: 'Mohamed Ezzat',
       title: 'Flutter Developer',
-      description: 'description ' * 20,
+      description:
+          'Proin gravida nibhvell aliquet.\n Aenean sollicitudin bibum\n auctor nisi elit',
       imagePath: Assets.images.mohamed.path,
     ),
     TeamMember(
       name: 'Arsany',
       title: 'Flutter Developer',
-      description: 'description ' * 20,
+      description:
+          'Proin gravida nibhvell aliquet.\n Aenean sollicitudin bibum\n auctor nisi elit',
       imagePath: Assets.images.arsany.path,
     ),
   ];

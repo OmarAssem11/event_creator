@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:event_creator/features/cars/domain/entities/car_brand.dart';
 
 class Car extends Equatable {
   final String id;
@@ -6,7 +7,7 @@ class Car extends Equatable {
   final String imageUrl;
   final double price;
   final double rating;
-  final String brand;
+  final CarBrand brand;
   final String model;
 
   const Car({

@@ -20,19 +20,7 @@ abstract class ValidationException extends AppException {
   ValidationException([super.msg]);
 }
 
-class BadRequestException extends RemoteException {}
-
-class UnauthorizedException extends RemoteException {}
-
-class ForbiddenException extends RemoteException {}
-
-class NotFoundException extends RemoteException {}
-
-class RequestTimeoutException extends RemoteException {}
-
-class ServiceUnavailableException extends RemoteException {}
-
-class InternalServerErrorException extends RemoteException {}
+abstract class EnumValueException extends AppException {}
 
 class NoInternetConnectionException extends RemoteException {
   NoInternetConnectionException() : super(S.current.noInternetConnection);
@@ -67,3 +55,5 @@ class InvalidPasswordException extends ValidationException {
 class InvalidPhoneNumberException extends ValidationException {
   InvalidPhoneNumberException() : super(S.current.invalidPhoneNumber);
 }
+
+class InvalidCarBrandException extends EnumValueException {}

@@ -12,8 +12,8 @@ class HostConstants {
   static const String checkCarEndpoint = '';
   static const String hallBookingEndpoint = 'bookhalls.php';
   static const String carBookingEndpoint = 'bookcar.php';
-  static const String rateHallEndpoint = 'ratehall.php';
-  static const String rateCarEndpoint = 'ratecar.php';
+  static const String rateHallEndpoint = 'ratinghalls.php';
+  static const String rateCarEndpoint = 'ratingcars.php';
 }
 
 class CacheConstants {

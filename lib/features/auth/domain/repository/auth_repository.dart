@@ -8,5 +8,5 @@ abstract class AuthRepository {
 
   Future<void> logout();
 
-  Future<bool> getAuthStatus();
+  Future<void> getAuthStatus();
 }

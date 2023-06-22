@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   cached_network_image: ^3.2.3
-  connectivity_plus: ^4.0.1
   dio: ^5.2.0
   equatable: ^2.0.5
   flutter:
@@ -22,6 +21,7 @@ dependencies:
   go_router: ^7.1.1
   injectable: ^2.1.2
   intl: ^0.18.0
+  shared_preferences: ^2.1.2
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:

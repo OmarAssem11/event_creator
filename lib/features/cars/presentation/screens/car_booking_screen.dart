@@ -55,14 +55,14 @@ class _CarBookingScreenState extends State<CarBookingScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(S.current.startDate),
+                  Text(S.current.pickupDate),
                   const SizedBox(height: Sizes.s8),
                   DateSelector(
                     onDateSelected: (selectedDate) =>
                         _carsCubit.carBookingData.startDate = selectedDate,
                   ),
                   const SizedBox(height: Sizes.s20),
-                  Text(S.current.endDate),
+                  Text(S.current.returnDate),
                   const SizedBox(height: Sizes.s12),
                   DateSelector(
                     onDateSelected: (selectedDate) =>

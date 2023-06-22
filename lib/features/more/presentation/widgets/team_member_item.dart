@@ -48,6 +48,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                 child: CircleAvatar(
                   radius: MediaQuery.of(context).size.width * 0.25,
                   backgroundImage: AssetImage(widget.teamMember.imagePath),
+                  backgroundColor: ColorPalette.screenBackground,
                 ),
               ),
               const SizedBox(height: Sizes.s12),

@@ -4,12 +4,9 @@ import 'package:flutter/material.dart';
 
 class ColorPalette {
   static const Color primary = Colors.amber;
-  static const Color secondary = Color(0xFF0B6685);
-  static const Color lightPrimary = Color(0xFFE0F1F4);
   static const Color screenBackground = Color(0xFFFFFFFF);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
-  static const Color green = Color(0xFF67C1AA);
   static const Color red = Color(0xFFE42A43);
   static const Color gold = Color(0xFFF9C449);
   static const Color grey = Color(0xFFAFAFAF);
@@ -21,7 +18,7 @@ ThemeData getTheme() => ThemeData(
       scaffoldBackgroundColor: ColorPalette.screenBackground,
       appBarTheme: AppBarTheme(
         color: ColorPalette.white,
-        foregroundColor: ColorPalette.secondary,
+        foregroundColor: ColorPalette.black,
         elevation: Sizes.s4,
         centerTitle: true,
         shape: const RoundedRectangleBorder(
@@ -34,7 +31,7 @@ ThemeData getTheme() => ThemeData(
           fontSize: FontSize.s20,
         ),
         actionsIconTheme: const IconThemeData(
-          color: ColorPalette.secondary,
+          color: ColorPalette.grey,
           size: Sizes.s28,
         ),
       ),
@@ -83,7 +80,7 @@ ThemeData getTheme() => ThemeData(
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: getMediumTextStyle(
+          textStyle: getBoldTextStyle(
             fontSize: FontSize.s14,
           ),
           foregroundColor: ColorPalette.primary,
@@ -93,19 +90,7 @@ ThemeData getTheme() => ThemeData(
         color: ColorPalette.grey,
         thickness: Sizes.s_8,
       ),
-      tabBarTheme: const TabBarTheme(
-        labelColor: ColorPalette.secondary,
-        unselectedLabelColor: ColorPalette.secondary,
-      ),
-      listTileTheme: const ListTileThemeData(iconColor: ColorPalette.primary),
-      switchTheme: SwitchThemeData(
-        thumbColor: const MaterialStatePropertyAll(ColorPalette.primary),
-        trackColor:
-            MaterialStatePropertyAll(ColorPalette.primary.withOpacity(0.5)),
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: ColorPalette.primary,
-      ),
+      listTileTheme: const ListTileThemeData(iconColor: ColorPalette.grey),
       radioTheme: const RadioThemeData(
         fillColor: MaterialStatePropertyAll(ColorPalette.primary),
       ),

@@ -50,7 +50,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "The email address is already in use by another account"),
         "emailCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Email address can\'t be empty"),
-        "endDate": MessageLookupByLibrary.simpleMessage("End Date"),
         "from": MessageLookupByLibrary.simpleMessage("from"),
         "hallBooking": MessageLookupByLibrary.simpleMessage("Hall Booking"),
         "hallDetails": MessageLookupByLibrary.simpleMessage("Hall Details"),
@@ -95,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
         "phoneNumberCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Phone number can\'t be empty"),
+        "pickupDate": MessageLookupByLibrary.simpleMessage("Pickup Date"),
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "rate": MessageLookupByLibrary.simpleMessage("Rate"),
@@ -102,13 +102,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateThisHall": MessageLookupByLibrary.simpleMessage("Rate this hall"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "returnDate": MessageLookupByLibrary.simpleMessage("Return Date"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select": MessageLookupByLibrary.simpleMessage("Select"),
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "startDate": MessageLookupByLibrary.simpleMessage("Start Date"),
-        "step": MessageLookupByLibrary.simpleMessage("Step"),
         "subject": MessageLookupByLibrary.simpleMessage("Subject"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "thankYouForYourRating":

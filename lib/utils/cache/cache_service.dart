@@ -1,7 +1,7 @@
 abstract class CacheService {
-  Future<void> put(String key, dynamic value);
+  Future<void> putString(String key, String value);
 
-  Future<dynamic> get(String key);
+  Future<String> getString(String key);
 
   Future<void> delete(String key);
 }

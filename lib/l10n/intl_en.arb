@@ -57,7 +57,6 @@
     "thankYouForYourRating": "Thank you for your rating", 
     "hallBooking": "Hall Booking",
     "carBooking": "Car Booking",
-    "step": "Step",
     "from": "from",
     "previous": "Previous",
     "next": "Next",
@@ -69,6 +68,6 @@
     "availableCars": "Available Cars",
     "noAvailableHalls": "No Available Halls",
     "noAvailableCars": "No Available Cars",
-    "startDate": "Start Date",
-    "endDate": "End Date"
+    "pickupDate": "Pickup Date",
+    "returnDate": "Return Date"
 }
