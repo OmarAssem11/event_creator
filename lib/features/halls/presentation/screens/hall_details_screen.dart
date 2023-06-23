@@ -49,7 +49,7 @@ class HallDetailsScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '${S.current.capacity}: ${hall.numOfPeople} ${S.current.peoples}',
+                  '${S.current.capacity}: ${hall.numOfPeoples} ${S.current.peoples}',
                 ),
                 const Spacer(),
                 if (hall.rating != null) ...[
@@ -78,29 +78,30 @@ class HallDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: Sizes.s8),
-                ElevatedButton(
-                  onPressed: () => showDialog(
-                    context: context,
-                    builder: (_) => HallRatingBar(hallId: hall.id),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(
-                      double.infinity,
-                      MediaQuery.of(context).size.height * 0.06,
+                if (hall.rating != null)
+                  ElevatedButton(
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (_) => HallRatingBar(hall: hall),
                     ),
-                    backgroundColor: ColorPalette.grey,
-                  ),
-                  child: Row(
-                    children: [
-                      Text(S.current.rate),
-                      const SizedBox(width: Sizes.s4),
-                      const Icon(
-                        Icons.rate_review_outlined,
-                        size: Sizes.s20,
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(
+                        double.infinity,
+                        MediaQuery.of(context).size.height * 0.06,
                       ),
-                    ],
+                      backgroundColor: ColorPalette.grey,
+                    ),
+                    child: Row(
+                      children: [
+                        Text(S.current.rate),
+                        const SizedBox(width: Sizes.s4),
+                        const Icon(
+                          Icons.rate_review_outlined,
+                          size: Sizes.s20,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
               ],
             ),
           ],

@@ -6,7 +6,7 @@ enum CarBrand {
   audi('Audi'),
   bmw('BMW'),
   toyota('toyota'),
-  miniCooper('Mini Cooper'),
+  miniCooper('Mini coper'),
   volkswagen('Volkswagen'),
   nissan('Nissan'),
   jeep('jeep'),
@@ -14,7 +14,8 @@ enum CarBrand {
   kia('KIA'),
   honda('Honda'),
   peugeot('Peugeot'),
-  skoda('Skoda');
+  skoda('Skoda'),
+  byd('BYD');
 
   final String text;
 
@@ -36,6 +37,7 @@ enum CarBrand {
       honda.text: honda,
       peugeot.text: peugeot,
       skoda.text: skoda,
+      byd.text: byd,
     };
 
     if (textBrands.containsKey(text)) {

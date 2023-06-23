@@ -1,3 +1,4 @@
+import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
@@ -12,9 +13,9 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:go_router/go_router.dart';
 
 class HallRatingBar extends StatefulWidget {
-  const HallRatingBar({required this.hallId});
+  const HallRatingBar({required this.hall});
 
-  final String hallId;
+  final Hall hall;
 
   @override
   State<HallRatingBar> createState() => _HallRatingBarState();
@@ -68,7 +69,11 @@ class _HallRatingBarState extends State<HallRatingBar> {
                   label: S.current.submit,
                   onPressed: () =>
                       BlocProvider.of<HallsCubit>(context).rateHall(
-                    HallRatingData(hallId: widget.hallId, rating: _rating),
+                    HallRatingData(
+                      hallId: widget.hall.id,
+                      rating: _rating,
+                      numOfRatings: widget.hall.numOfRatings!,
+                    ),
                   ),
                   isLoading: _isLoading,
                 );

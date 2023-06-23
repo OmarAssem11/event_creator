@@ -1,4 +1,4 @@
-import 'package:event_creator/features/halls/domain/entities/halls_filter.dart';
+import 'package:event_creator/features/halls/domain/entities/halls_search_data.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/generated/l10n.dart';
@@ -12,14 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class HallsSearch extends StatefulWidget {
-  const HallsSearch();
+class HallsSearchDialog extends StatefulWidget {
+  const HallsSearchDialog();
 
   @override
-  State<HallsSearch> createState() => _HallsSearchState();
+  State<HallsSearchDialog> createState() => _HallsSearchDialogState();
 }
 
-class _HallsSearchState extends State<HallsSearch> {
+class _HallsSearchDialogState extends State<HallsSearchDialog> {
   final _formKey = GlobalKey<FormState>();
   final _numOfPeoplesController = TextEditingController();
   final _minPriceController = TextEditingController();
@@ -82,7 +82,7 @@ class _HallsSearchState extends State<HallsSearch> {
                     onPressed: () {
                       if (_formKey.currentState?.validate() == true) {
                         BlocProvider.of<HallsCubit>(context).filterHalls(
-                          HallsFilter(
+                          HallsSearchData(
                             date: _selectedDate,
                             minPrice: double.parse(_minPriceController.text),
                             maxPrice: double.parse(_maxPriceController.text),

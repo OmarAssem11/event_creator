@@ -1,6 +1,6 @@
 import 'package:event_creator/features/cars/domain/entities/car_brand.dart';
 import 'package:event_creator/features/cars/domain/entities/car_option.dart';
-import 'package:event_creator/features/cars/domain/entities/cars_filter.dart';
+import 'package:event_creator/features/cars/domain/entities/cars_search_data.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
 import 'package:event_creator/features/cars/presentation/widgets/car_brand_drop_down_button.dart';
@@ -10,23 +10,19 @@ import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:event_creator/ui/widgets/date_selector.dart';
 import 'package:event_creator/ui/widgets/default_elevated_button.dart';
-import 'package:event_creator/ui/widgets/default_text_form_field.dart';
-import 'package:event_creator/utils/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class CarsSearch extends StatefulWidget {
-  const CarsSearch();
+class CarsSearchDialog extends StatefulWidget {
+  const CarsSearchDialog();
 
   @override
-  State<CarsSearch> createState() => _CarsSearchState();
+  State<CarsSearchDialog> createState() => _CarsSearchDialogState();
 }
 
-class _CarsSearchState extends State<CarsSearch> {
+class _CarsSearchDialogState extends State<CarsSearchDialog> {
   final _formKey = GlobalKey<FormState>();
-  final _minPriceController = TextEditingController();
-  final _maxPriceController = TextEditingController();
   DateTime _selectedStartDate = DateTime.now();
   DateTime _selectedEndDate = DateTime.now();
   CarBrand _selectedCarBrand = CarBrand.volvo;
@@ -84,35 +80,11 @@ class _CarsSearchState extends State<CarsSearch> {
               CarOptionDropDownButton(
                 onChanged: (carOption) => _selectedCarOption = carOption,
               ),
-              const SizedBox(height: Sizes.s12),
-              Row(
-                children: [
-                  Expanded(
-                    child: DefaultTextFormField(
-                      controller: _minPriceController,
-                      hintText: S.current.minPrice,
-                      keyboardType: TextInputType.number,
-                      validator: (minPrice) =>
-                          validateRegularText(minPrice, S.current.minPrice),
-                    ),
-                  ),
-                  const SizedBox(width: Sizes.s8),
-                  Expanded(
-                    child: DefaultTextFormField(
-                      controller: _maxPriceController,
-                      hintText: S.current.maxPrice,
-                      keyboardType: TextInputType.number,
-                      validator: (maxPrice) =>
-                          validateRegularText(maxPrice, S.current.maxPrice),
-                    ),
-                  ),
-                ],
-              ),
               const SizedBox(height: Sizes.s24),
               BlocConsumer<CarsCubit, CarsState>(
                 listener: (_, state) {
                   _isLoading = state is CarsLoading;
-                  if (state is FilterCarsSuccess) {
+                  if (state is SearchCarsSuccess) {
                     context.pop();
                     context.pushNamed(Routes.carsSearchResultsScreen);
                   }
@@ -122,14 +94,12 @@ class _CarsSearchState extends State<CarsSearch> {
                     label: S.current.search,
                     onPressed: () {
                       if (_formKey.currentState?.validate() == true) {
-                        BlocProvider.of<CarsCubit>(context).filterCars(
-                          CarsFilter(
+                        BlocProvider.of<CarsCubit>(context).searchCars(
+                          CarsSearchData(
                             startDate: _selectedStartDate,
                             endDate: _selectedEndDate,
                             brand: _selectedCarBrand,
                             option: _selectedCarOption,
-                            minPrice: double.parse(_minPriceController.text),
-                            maxPrice: double.parse(_maxPriceController.text),
                           ),
                         );
                       }
@@ -143,12 +113,5 @@ class _CarsSearchState extends State<CarsSearch> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _minPriceController.dispose();
-    _maxPriceController.dispose();
-    super.dispose();
   }
 }

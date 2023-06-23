@@ -7,6 +7,7 @@ class Car extends Equatable {
   final String imageUrl;
   final double price;
   final double rating;
+  final int numOfRatings;
   final CarBrand brand;
   final String model;
 
@@ -16,6 +17,7 @@ class Car extends Equatable {
     required this.imageUrl,
     required this.price,
     required this.rating,
+    required this.numOfRatings,
     required this.brand,
     required this.model,
   });

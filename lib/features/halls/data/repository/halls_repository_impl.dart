@@ -64,7 +64,8 @@ extension HallMapper on HallModel {
         imageUrl: imageUrl,
         price: price,
         rating: rating,
-        numOfPeople: numOfPeople,
+        numOfRatings: numOfRatings,
+        numOfPeoples: numOfPeoples,
       );
 }
 
@@ -92,6 +93,7 @@ extension HallRatingDataModelMapper on HallRatingData {
   HallRatingDataModel get fromEntity => HallRatingDataModel(
         hallId: hallId,
         rating: rating,
+        numOfRatings: numOfRatings,
       );
 }
 

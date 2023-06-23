@@ -10,7 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i3;
-import 'package:event_creator/di/app_module.dart' as _i41;
+import 'package:event_creator/di/app_module.dart' as _i42;
 import 'package:event_creator/features/auth/data/repository/auth_repository_impl.dart'
     as _i21;
 import 'package:event_creator/features/auth/data/services/auth_http_service.dart'
@@ -28,7 +28,7 @@ import 'package:event_creator/features/auth/domain/usecases/logout.dart'
 import 'package:event_creator/features/auth/domain/usecases/register_with_email_and_password.dart'
     as _i37;
 import 'package:event_creator/features/auth/presentation/cubit/auth_cubit.dart'
-    as _i38;
+    as _i39;
 import 'package:event_creator/features/cars/data/repository/cars_repository_impl.dart'
     as _i24;
 import 'package:event_creator/features/cars/data/services/cars_http_service.dart'
@@ -38,13 +38,15 @@ import 'package:event_creator/features/cars/domain/repository/cars_repository.da
 import 'package:event_creator/features/cars/domain/services/cars_service.dart'
     as _i13;
 import 'package:event_creator/features/cars/domain/usecases/book_car.dart'
-    as _i39;
+    as _i40;
 import 'package:event_creator/features/cars/domain/usecases/get_all_cars.dart'
     as _i26;
 import 'package:event_creator/features/cars/domain/usecases/rate_car.dart'
     as _i36;
+import 'package:event_creator/features/cars/domain/usecases/search_cars.dart'
+    as _i38;
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart'
-    as _i40;
+    as _i41;
 import 'package:event_creator/features/halls/data/repository/halls_repository_impl.dart'
     as _i16;
 import 'package:event_creator/features/halls/data/services/halls_http_service.dart'
@@ -156,21 +158,24 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i36.RateCar(gh<_i23.CarsRepository>()));
     gh.lazySingleton<_i37.RegisterWithEmailAndPassword>(
         () => _i37.RegisterWithEmailAndPassword(gh<_i20.AuthRepository>()));
-    gh.factory<_i38.AuthCubit>(() => _i38.AuthCubit(
+    gh.lazySingleton<_i38.SearchCars>(
+        () => _i38.SearchCars(gh<_i23.CarsRepository>()));
+    gh.factory<_i39.AuthCubit>(() => _i39.AuthCubit(
           gh<_i37.RegisterWithEmailAndPassword>(),
           gh<_i33.LoginWithEmailAndPassword>(),
           gh<_i34.Logout>(),
           gh<_i28.GetAuthStatus>(),
         ));
-    gh.lazySingleton<_i39.BookCar>(
-        () => _i39.BookCar(gh<_i23.CarsRepository>()));
-    gh.lazySingleton<_i40.CarsCubit>(() => _i40.CarsCubit(
+    gh.lazySingleton<_i40.BookCar>(
+        () => _i40.BookCar(gh<_i23.CarsRepository>()));
+    gh.lazySingleton<_i41.CarsCubit>(() => _i41.CarsCubit(
           gh<_i26.GetAllCars>(),
+          gh<_i38.SearchCars>(),
           gh<_i36.RateCar>(),
-          gh<_i39.BookCar>(),
+          gh<_i40.BookCar>(),
         ));
     return this;
   }
 }
 
-class _$AppModule extends _i41.AppModule {}
+class _$AppModule extends _i42.AppModule {}

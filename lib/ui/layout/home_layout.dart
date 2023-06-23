@@ -53,8 +53,8 @@ class _HomeLayoutState extends State<HomeLayout> {
                     onPressed: () => showDialog(
                       context: context,
                       builder: (_) => _currentIndex == 0
-                          ? const HallsSearch()
-                          : const CarsSearch(),
+                          ? const HallsSearchDialog()
+                          : const CarsSearchDialog(),
                     ),
                     icon: const Icon(Icons.search_rounded),
                   ),

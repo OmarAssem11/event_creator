@@ -19,7 +19,7 @@ class _CarsSearchResultsScreenState extends State<CarsSearchResultsScreen> {
   @override
   void initState() {
     super.initState();
-    _filteredCars = BlocProvider.of<CarsCubit>(context).filteredCars;
+    _filteredCars = BlocProvider.of<CarsCubit>(context).searchCarsResults;
   }
 
   @override

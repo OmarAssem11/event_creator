@@ -1,3 +1,4 @@
+import 'package:event_creator/features/cars/domain/entities/car.dart';
 import 'package:event_creator/features/cars/domain/entities/car_rating_data.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
@@ -12,9 +13,9 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:go_router/go_router.dart';
 
 class CarRatingBar extends StatefulWidget {
-  const CarRatingBar({required this.carId});
+  const CarRatingBar({required this.car});
 
-  final String carId;
+  final Car car;
 
   @override
   State<CarRatingBar> createState() => _CarRatingBarState();
@@ -67,7 +68,11 @@ class _CarRatingBarState extends State<CarRatingBar> {
                 return DefaultElevatedButton(
                   label: S.current.submit,
                   onPressed: () => BlocProvider.of<CarsCubit>(context).rateCar(
-                    CarRatingData(carId: widget.carId, rating: _rating),
+                    CarRatingData(
+                      carId: widget.car.id,
+                      rating: _rating,
+                      numOfRatings: widget.car.numOfRatings,
+                    ),
                   ),
                   isLoading: _isLoading,
                 );

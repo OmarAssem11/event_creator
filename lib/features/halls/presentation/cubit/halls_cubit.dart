@@ -2,7 +2,7 @@ import 'package:event_creator/features/halls/domain/entities/event_type.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
-import 'package:event_creator/features/halls/domain/entities/halls_filter.dart';
+import 'package:event_creator/features/halls/domain/entities/halls_search_data.dart';
 import 'package:event_creator/features/halls/domain/usecases/book_hall.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_all_halls.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_hairdresser.dart';
@@ -101,7 +101,7 @@ class HallsCubit extends Cubit<HallsState> {
     }
   }
 
-  Future<void> filterHalls(HallsFilter hallsFilter) async {
+  Future<void> filterHalls(HallsSearchData hallsFilter) async {
     emit(HallsLoading());
     await Future.delayed(const Duration(milliseconds: 700));
     filteredHalls = allHalls.where((hall) => hallsFilter.match(hall)).toList();

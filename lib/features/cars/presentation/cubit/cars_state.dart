@@ -16,4 +16,4 @@ class RateCarSuccess extends CarsState {}
 
 class BookCarSuccess extends CarsState {}
 
-class FilterCarsSuccess extends CarsState {}
+class SearchCarsSuccess extends CarsState {}

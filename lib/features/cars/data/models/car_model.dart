@@ -4,6 +4,7 @@ class CarModel {
   final String imageUrl;
   final double price;
   final double rating;
+  final int numOfRatings;
   final String brand;
   final String model;
 
@@ -13,6 +14,7 @@ class CarModel {
     required this.imageUrl,
     required this.price,
     required this.rating,
+    required this.numOfRatings,
     required this.brand,
     required this.model,
   });
@@ -24,6 +26,7 @@ class CarModel {
           imageUrl: json['paths'] as String,
           price: (json['price'] as num).toDouble(),
           rating: (json['num_rate'] as num).toDouble(),
+          numOfRatings: json['sum_rate'] as int,
           brand: json['brand'] as String,
           model: json['model'] as String,
         );

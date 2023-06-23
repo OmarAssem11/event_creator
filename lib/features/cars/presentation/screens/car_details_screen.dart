@@ -75,7 +75,7 @@ class CarDetailsScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => showDialog(
                     context: context,
-                    builder: (_) => CarRatingBar(carId: car.id),
+                    builder: (_) => CarRatingBar(car: car),
                   ),
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(
