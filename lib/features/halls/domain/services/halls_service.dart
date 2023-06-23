@@ -2,12 +2,17 @@ import 'package:event_creator/features/halls/data/models/hairdresser_model.dart'
 import 'package:event_creator/features/halls/data/models/hall_booking_data_model.dart';
 import 'package:event_creator/features/halls/data/models/hall_model.dart';
 import 'package:event_creator/features/halls/data/models/hall_rating_data_model.dart';
+import 'package:event_creator/features/halls/data/models/halls_search_data_model.dart';
 import 'package:event_creator/features/halls/data/models/photographer_model.dart';
 
 abstract class HallsService {
   Future<List<HallModel>> getAllHalls();
 
   Future<List<HallModel>> getOffersHalls();
+
+  Future<List<HallModel>> searchHalls(
+    HallsSearchDataModel hallsSearchDataModel,
+  );
 
   Future<List<HairdresserModel>> getHairdressers();
 

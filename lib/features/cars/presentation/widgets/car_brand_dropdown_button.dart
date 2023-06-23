@@ -3,16 +3,16 @@ import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
-class CarBrandDropDownButton extends StatefulWidget {
-  const CarBrandDropDownButton({required this.onChanged});
+class CarBrandDropdownButton extends StatefulWidget {
+  const CarBrandDropdownButton({required this.onChanged});
 
   final void Function(CarBrand) onChanged;
 
   @override
-  State<CarBrandDropDownButton> createState() => _CarBrandDropDownButtonState();
+  State<CarBrandDropdownButton> createState() => _CarBrandDropdownButtonState();
 }
 
-class _CarBrandDropDownButtonState extends State<CarBrandDropDownButton> {
+class _CarBrandDropdownButtonState extends State<CarBrandDropdownButton> {
   final _carBrands = CarBrand.values;
   late CarBrand _selectedType = _carBrands.first;
 

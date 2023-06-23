@@ -2,12 +2,15 @@ import 'package:event_creator/features/halls/domain/entities/hairdresser.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
+import 'package:event_creator/features/halls/domain/entities/halls_search_data.dart';
 import 'package:event_creator/features/halls/domain/entities/photographer.dart';
 
 abstract class HallsRepository {
   Future<List<Hall>> getAllHalls();
 
   Future<List<Hall>> getOffersHalls();
+
+  Future<List<Hall>> searchHalls(HallsSearchData hallsSearchData);
 
   Future<List<Hairdresser>> getHairdressers();
 

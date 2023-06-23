@@ -1,22 +1,17 @@
-import 'package:event_creator/features/halls/domain/entities/hall.dart';
+import 'package:event_creator/features/halls/domain/entities/hall_place.dart';
 
 class HallsSearchData {
+  final HallPlace place;
   final DateTime date;
-  final int numOfPeople;
+  final int numOfPeoples;
   final double minPrice;
   final double maxPrice;
 
   const HallsSearchData({
+    required this.place,
     required this.date,
-    required this.numOfPeople,
+    required this.numOfPeoples,
     required this.minPrice,
     required this.maxPrice,
   });
-
-  bool match(Hall hall) => _matchNumOfPeople(hall) && _matchPrice(hall);
-
-  bool _matchNumOfPeople(Hall hall) => hall.numOfPeoples >= numOfPeople;
-
-  bool _matchPrice(Hall hall) =>
-      hall.price >= minPrice && hall.price <= maxPrice;
 }

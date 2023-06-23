@@ -1,6 +1,8 @@
+import 'package:event_creator/features/halls/domain/entities/hall_place.dart';
 import 'package:event_creator/features/halls/domain/entities/halls_search_data.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_cubit.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
+import 'package:event_creator/features/halls/presentation/widgets/hall_place_dropdown_button.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
@@ -21,10 +23,11 @@ class HallsSearchDialog extends StatefulWidget {
 
 class _HallsSearchDialogState extends State<HallsSearchDialog> {
   final _formKey = GlobalKey<FormState>();
+  HallPlace _selectedHallPlace = HallPlace.giza;
+  DateTime _selectedDate = DateTime.now();
   final _numOfPeoplesController = TextEditingController();
   final _minPriceController = TextEditingController();
   final _maxPriceController = TextEditingController();
-  DateTime _selectedDate = DateTime.now();
   bool _isLoading = false;
 
   @override
@@ -40,6 +43,10 @@ class _HallsSearchDialogState extends State<HallsSearchDialog> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              HallPlaceDropdownButton(
+                onChanged: (hallPlace) => _selectedHallPlace = hallPlace,
+              ),
+              const SizedBox(height: Sizes.s12),
               DateSelector(onDateSelected: (date) => _selectedDate = date),
               const SizedBox(height: Sizes.s12),
               DefaultTextFormField(
@@ -71,7 +78,7 @@ class _HallsSearchDialogState extends State<HallsSearchDialog> {
               BlocConsumer<HallsCubit, HallsState>(
                 listener: (_, state) {
                   _isLoading = state is HallsLoading;
-                  if (state is FilterHallsSuccess) {
+                  if (state is SearchHallsSuccess) {
                     context.pop();
                     context.pushNamed(Routes.hallsSearchResultsScreen);
                   }
@@ -81,12 +88,13 @@ class _HallsSearchDialogState extends State<HallsSearchDialog> {
                     label: S.current.search,
                     onPressed: () {
                       if (_formKey.currentState?.validate() == true) {
-                        BlocProvider.of<HallsCubit>(context).filterHalls(
+                        BlocProvider.of<HallsCubit>(context).searchHalls(
                           HallsSearchData(
+                            place: _selectedHallPlace,
                             date: _selectedDate,
                             minPrice: double.parse(_minPriceController.text),
                             maxPrice: double.parse(_maxPriceController.text),
-                            numOfPeople:
+                            numOfPeoples:
                                 int.parse(_numOfPeoplesController.text),
                           ),
                         );

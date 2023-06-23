@@ -38,4 +38,4 @@ class RateHallSuccess extends HallsState {}
 
 class BookHallSuccess extends HallsState {}
 
-class FilterHallsSuccess extends HallsState {}
+class SearchHallsSuccess extends HallsState {}

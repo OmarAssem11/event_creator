@@ -9,6 +9,7 @@ import 'package:event_creator/features/halls/domain/usecases/get_hairdresser.dar
 import 'package:event_creator/features/halls/domain/usecases/get_offers_halls.dart';
 import 'package:event_creator/features/halls/domain/usecases/get_photographers.dart';
 import 'package:event_creator/features/halls/domain/usecases/rate_hall.dart';
+import 'package:event_creator/features/halls/domain/usecases/search_halls.dart';
 import 'package:event_creator/features/halls/presentation/cubit/halls_state.dart';
 import 'package:event_creator/utils/exception/app_exception.dart';
 import 'package:flutter/material.dart';
@@ -19,12 +20,13 @@ import 'package:injectable/injectable.dart';
 class HallsCubit extends Cubit<HallsState> {
   final GetAllHalls _getAllHalls;
   final GetOffersHalls _getOffersHalls;
+  final SearchHalls _searchHalls;
   final GetHairdressers _getHairdressers;
   final GetPhotographers _getPhotographers;
   final RateHall _rateHall;
   final BookHall _bookHall;
   List<Hall> allHalls = [];
-  List<Hall> filteredHalls = [];
+  List<Hall> searchHallsResults = [];
   final pageController = PageController();
   final hallBookingData = HallBookingData(
     hallId: '',
@@ -35,6 +37,7 @@ class HallsCubit extends Cubit<HallsState> {
   HallsCubit(
     this._getAllHalls,
     this._getOffersHalls,
+    this._searchHalls,
     this._getHairdressers,
     this._getPhotographers,
     this._rateHall,
@@ -101,11 +104,14 @@ class HallsCubit extends Cubit<HallsState> {
     }
   }
 
-  Future<void> filterHalls(HallsSearchData hallsFilter) async {
+  Future<void> searchHalls(HallsSearchData hallsSearchData) async {
     emit(HallsLoading());
-    await Future.delayed(const Duration(milliseconds: 700));
-    filteredHalls = allHalls.where((hall) => hallsFilter.match(hall)).toList();
-    emit(FilterHallsSuccess());
+    try {
+      searchHallsResults = await _searchHalls(hallsSearchData);
+      emit(SearchHallsSuccess());
+    } on RemoteException catch (exception) {
+      emit(HallsError(exception.message));
+    }
   }
 
   @override

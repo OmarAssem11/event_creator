@@ -3,11 +3,13 @@ import 'package:event_creator/features/halls/data/models/hairdresser_model.dart'
 import 'package:event_creator/features/halls/data/models/hall_booking_data_model.dart';
 import 'package:event_creator/features/halls/data/models/hall_model.dart';
 import 'package:event_creator/features/halls/data/models/hall_rating_data_model.dart';
+import 'package:event_creator/features/halls/data/models/halls_search_data_model.dart';
 import 'package:event_creator/features/halls/data/models/photographer_model.dart';
 import 'package:event_creator/features/halls/domain/entities/hairdresser.dart';
 import 'package:event_creator/features/halls/domain/entities/hall.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_booking_data.dart';
 import 'package:event_creator/features/halls/domain/entities/hall_rating_data.dart';
+import 'package:event_creator/features/halls/domain/entities/halls_search_data.dart';
 import 'package:event_creator/features/halls/domain/entities/photographer.dart';
 import 'package:event_creator/features/halls/domain/repository/halls_repository.dart';
 import 'package:event_creator/features/halls/domain/services/halls_service.dart';
@@ -29,6 +31,13 @@ class HallsRepositoryImpl implements HallsRepository {
   @override
   Future<List<Hall>> getOffersHalls() async {
     final hallsModels = await _hallsService.getOffersHalls();
+    return hallsModels.map((hallModel) => hallModel.toEntity).toList();
+  }
+
+  @override
+  Future<List<Hall>> searchHalls(HallsSearchData hallsSearchData) async {
+    final hallsModels =
+        await _hallsService.searchHalls(hallsSearchData.fromEntity);
     return hallsModels.map((hallModel) => hallModel.toEntity).toList();
   }
 
@@ -66,6 +75,16 @@ extension HallMapper on HallModel {
         rating: rating,
         numOfRatings: numOfRatings,
         numOfPeoples: numOfPeoples,
+      );
+}
+
+extension HallsSearchDataModelMapper on HallsSearchData {
+  HallsSearchDataModel get fromEntity => HallsSearchDataModel(
+        place: place.text,
+        date: formatDateTime(date),
+        numOfPeoples: numOfPeoples,
+        minPrice: minPrice,
+        maxPrice: maxPrice,
       );
 }
 

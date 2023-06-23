@@ -3,8 +3,8 @@ import 'package:event_creator/features/cars/domain/entities/car_option.dart';
 import 'package:event_creator/features/cars/domain/entities/cars_search_data.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_cubit.dart';
 import 'package:event_creator/features/cars/presentation/cubit/cars_state.dart';
-import 'package:event_creator/features/cars/presentation/widgets/car_brand_drop_down_button.dart';
-import 'package:event_creator/features/cars/presentation/widgets/car_option_drop_down_button.dart';
+import 'package:event_creator/features/cars/presentation/widgets/car_brand_dropdown_button.dart';
+import 'package:event_creator/features/cars/presentation/widgets/car_option_dropdown_button.dart';
 import 'package:event_creator/generated/l10n.dart';
 import 'package:event_creator/route_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
@@ -73,11 +73,11 @@ class _CarsSearchDialogState extends State<CarsSearchDialog> {
                 ],
               ),
               const SizedBox(height: Sizes.s12),
-              CarBrandDropDownButton(
+              CarBrandDropdownButton(
                 onChanged: (carBrand) => _selectedCarBrand = carBrand,
               ),
               const SizedBox(height: Sizes.s12),
-              CarOptionDropDownButton(
+              CarOptionDropdownButton(
                 onChanged: (carOption) => _selectedCarOption = carOption,
               ),
               const SizedBox(height: Sizes.s24),

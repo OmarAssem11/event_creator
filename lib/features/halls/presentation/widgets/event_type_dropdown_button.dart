@@ -3,17 +3,17 @@ import 'package:event_creator/ui/resources/theme_manager.dart';
 import 'package:event_creator/ui/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
-class EventTypeDropDownButton extends StatefulWidget {
-  const EventTypeDropDownButton({required this.onChanged});
+class EventTypeDropdownButton extends StatefulWidget {
+  const EventTypeDropdownButton({required this.onChanged});
 
   final void Function(EventType) onChanged;
 
   @override
-  State<EventTypeDropDownButton> createState() =>
-      _EventTypeDropDownButtonState();
+  State<EventTypeDropdownButton> createState() =>
+      _EventTypeDropdownButtonState();
 }
 
-class _EventTypeDropDownButtonState extends State<EventTypeDropDownButton> {
+class _EventTypeDropdownButtonState extends State<EventTypeDropdownButton> {
   final _eventTypes = EventType.values;
   late EventType _selectedType = _eventTypes.first;
 

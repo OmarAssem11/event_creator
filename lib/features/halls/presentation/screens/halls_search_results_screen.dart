@@ -19,7 +19,7 @@ class _HallsSearchResultsScreenState extends State<HallsSearchResultsScreen> {
   @override
   void initState() {
     super.initState();
-    _filteredHalls = BlocProvider.of<HallsCubit>(context).filteredHalls;
+    _filteredHalls = BlocProvider.of<HallsCubit>(context).searchHallsResults;
   }
 
   @override
