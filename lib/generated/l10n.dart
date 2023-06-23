@@ -110,11 +110,11 @@ class S {
     );
   }
 
-  /// `Welcome Back,`
-  String get welcomeBack {
+  /// `Event Creator`
+  String get eventCreator {
     return Intl.message(
-      'Welcome Back,',
-      name: 'welcomeBack',
+      'Event Creator',
+      name: 'eventCreator',
       desc: '',
       args: [],
     );
@@ -175,16 +175,6 @@ class S {
     return Intl.message(
       'Create an account',
       name: 'createAccount',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome,`
-  String get welcome {
-    return Intl.message(
-      'Welcome,',
-      name: 'welcome',
       desc: '',
       args: [],
     );

@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                S.current.welcome,
+                S.current.eventCreator,
                 style: _textTheme.displaySmall
                     ?.copyWith(fontWeight: FontWeightManager.bold),
               ),

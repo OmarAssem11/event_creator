@@ -74,7 +74,7 @@ class _HallsSearchDialogState extends State<HallsSearchDialog> {
                 validator: (maxPrice) =>
                     validateRegularText(maxPrice, S.current.maxPrice),
               ),
-              const SizedBox(height: Sizes.s24),
+              const SizedBox(height: Sizes.s20),
               BlocConsumer<HallsCubit, HallsState>(
                 listener: (_, state) {
                   _isLoading = state is HallsLoading;

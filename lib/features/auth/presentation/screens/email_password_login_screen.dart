@@ -50,7 +50,7 @@ class _EmailPasswordLoginScreenState extends State<EmailPasswordLoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                S.current.welcomeBack,
+                S.current.eventCreator,
                 style: _textTheme.displaySmall
                     ?.copyWith(fontWeight: FontWeightManager.bold),
               ),

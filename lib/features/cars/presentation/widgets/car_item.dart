@@ -54,7 +54,7 @@ class CarItem extends StatelessWidget {
                 const SizedBox(height: Sizes.s12),
                 Row(
                   children: [
-                    Text('${S.current.model}: ${car.brand} ${car.model}'),
+                    Text('${S.current.model}: ${car.brand.text} ${car.model}'),
                     const Spacer(),
                     Text('${car.rating}'),
                     const Icon(

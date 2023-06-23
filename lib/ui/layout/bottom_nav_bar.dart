@@ -48,7 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ],
           selectedIconTheme: const IconThemeData(color: ColorPalette.black),
           unselectedIconTheme:
-              const IconThemeData(color: ColorPalette.darkGrey),
+              IconThemeData(color: ColorPalette.darkGrey.withOpacity(.6)),
           currentIndex: widget.currentIndex,
           onTap: widget.onTap,
           type: BottomNavigationBarType.fixed,

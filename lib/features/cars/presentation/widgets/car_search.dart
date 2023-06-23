@@ -80,7 +80,7 @@ class _CarsSearchDialogState extends State<CarsSearchDialog> {
               CarOptionDropdownButton(
                 onChanged: (carOption) => _selectedCarOption = carOption,
               ),
-              const SizedBox(height: Sizes.s24),
+              const SizedBox(height: Sizes.s20),
               BlocConsumer<CarsCubit, CarsState>(
                 listener: (_, state) {
                   _isLoading = state is CarsLoading;
